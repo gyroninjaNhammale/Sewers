@@ -74,9 +74,11 @@ public class hut {
 				int ran5 = gen.nextInt(3);
 				int ran6 = gen.nextInt(3);
 				set5.setType(m);
-				int rtorch1 = (int) (Math.random() * 5);
+				int rtorch1 = gen.nextInt(5);
 				if (rtorch1 == 1){
-					set5.setType(Material.GLOWSTONE);
+					byte flags = (byte) (0x5);
+					set5.setType(Material.TORCH);
+					set5.setTypeIdAndData(50, flags, true);
 				}
 				set5.setData((byte) ran3);
 				set6.setType(m);

@@ -132,7 +132,9 @@ public class pit {
 				set5.setType(m);
 				int rtorch1 = gen.nextInt(5);
 				if (rtorch1 == 1){
-					set5.setType(Material.GLOWSTONE);
+					byte flags = (byte) (0x5);
+					set5.setType(Material.TORCH);
+					set5.setTypeIdAndData(50, flags, true);
 				}
 				set5.setData((byte) ran3);
 				set6.setType(m);
@@ -149,7 +151,9 @@ public class pit {
 				set51.setType(m);
 				int rtorch11 = gen.nextInt(5);
 				if (rtorch11 == 1){
-					set5.setType(Material.GLOWSTONE);
+					byte flags = (byte) (0x5);
+					set5.setType(Material.TORCH);
+					set5.setTypeIdAndData(50, flags, true);
 				}
 				set51.setData((byte) ran31);
 				set61.setType(m);
@@ -559,7 +563,9 @@ public class pit {
 				set5.setType(m);
 				int rtorch1 = gen.nextInt(5);
 				if (rtorch1 == 1){
-					set5.setType(Material.GLOWSTONE);
+					byte flags = (byte) (0x5);
+					set5.setType(Material.TORCH);
+					set5.setTypeIdAndData(50, flags, true);
 				}
 				set5.setData((byte) ran3);
 				set6.setType(m);
@@ -576,7 +582,9 @@ public class pit {
 				set51.setType(m);
 				int rtorch11 = gen.nextInt(5);
 				if (rtorch11 == 1){
-					set5.setType(Material.GLOWSTONE);
+					byte flags = (byte) (0x5);
+					set5.setType(Material.TORCH);
+					set5.setTypeIdAndData(50, flags, true);
 				}
 				set51.setData((byte) ran31);
 				set61.setType(m);
