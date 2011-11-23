@@ -69,7 +69,7 @@ public class manhole {
 				set5.setType(m);
 				int rtorch1 = gen.nextInt(5);
 				if (rtorch1 == 1){
-					byte flags = (byte)4;
+					byte flags = (byte)5;
 					set5.setType(Material.TORCH);
 					set5.setData(flags);
 				}
