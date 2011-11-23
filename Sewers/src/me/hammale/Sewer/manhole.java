@@ -67,12 +67,6 @@ public class manhole {
 				int ran5 = gen.nextInt(3);
 				int ran6 = gen.nextInt(3);
 				set5.setType(m);
-				int rtorch1 = gen.nextInt(5);
-				if (rtorch1 == 1){
-					byte flags = (byte)5;
-					set5.setType(Material.TORCH);
-					set5.setData(flags);
-				}
 				set5.setData((byte) ran3);
 				set6.setType(m);
 				set6.setData((byte) ran7);
@@ -173,12 +167,6 @@ public class manhole {
 				int ran5 = gen.nextInt(3);
 				int ran6 = gen.nextInt(3);
 				set5.setType(m);
-				int rtorch1 = (int) gen.nextInt(5);
-				if (rtorch1 == 1){
-					byte flags = (byte)5;
-					set5.setType(Material.TORCH);
-					set5.setData(flags);
-				}
 				set5.setData((byte) ran3);
 				set6.setType(m);
 				set6.setData((byte) ran7);

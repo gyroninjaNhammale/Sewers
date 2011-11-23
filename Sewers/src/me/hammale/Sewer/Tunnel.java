@@ -169,11 +169,12 @@ public class Tunnel {
 				set6.setType(m);
 				set6.setData((byte) ran7);
 				set7.setType(m);
-				int rtorch1 = gen.nextInt(5);
+				int rtorch1 = gen.nextInt(15);
 				if (rtorch1 == 1){
 					byte flags = (byte) (0x5);
-					set7.setType(Material.TORCH);
-					set7.setTypeIdAndData(50, flags, true);
+					Block torch = set7.getRelative(BlockFace.SOUTH, 1);
+					torch.setType(Material.TORCH);
+					torch.setTypeIdAndData(50, flags, true);
 				}
 				set7.setData((byte) ran5);
 				set8.setType(m);
@@ -393,11 +394,12 @@ public class Tunnel {
 				set6.setType(m);
 				set6.setData((byte) ran7);
 				set7.setType(m);
-				int rtorch1 = gen.nextInt(5);
+				int rtorch1 = gen.nextInt(15);
 				if (rtorch1 == 1){
 					byte flags = (byte) (0x5);
-					set7.setType(Material.TORCH);
-					set7.setTypeIdAndData(50, flags, true);
+					Block torch = set7.getRelative(BlockFace.WEST, 1);
+					torch.setType(Material.TORCH);
+					torch.setTypeIdAndData(50, flags, true);
 				}
 				set7.setData((byte) ran5);
 				set8.setType(m);
