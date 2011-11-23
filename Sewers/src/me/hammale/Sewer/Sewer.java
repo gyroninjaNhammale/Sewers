@@ -3,7 +3,6 @@ package me.hammale.Sewer;
 import org.bukkit.Server;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Sewer extends JavaPlugin {
@@ -15,6 +14,7 @@ public class Sewer extends JavaPlugin {
 	
 	private SewerCommandListener cmdExecutor;
 	private SewerChunkListener chunkListener;
+	private SewerBlockListener blockListener;
 	
 	@Override
 	public void onEnable()
@@ -22,6 +22,7 @@ public class Sewer extends JavaPlugin {
 	    System.out.println("Sewers Enabled!" );
 	    cmdExecutor = new SewerCommandListener(this);
 	    chunkListener = new SewerChunkListener(this);
+	    blockListener = new SewerBlockListener();
 		getCommand("sewer").setExecutor(cmdExecutor);
 		registerEvents();
 		
@@ -35,5 +36,6 @@ public class Sewer extends JavaPlugin {
 	private void registerEvents()
     {
 		getServer().getPluginManager().registerEvent(Event.Type.CHUNK_POPULATED, this.chunkListener, Event.Priority.Normal, this);
+		getServer().getPluginManager().registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Normal, this);
     }
 }
