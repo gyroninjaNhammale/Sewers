@@ -21,9 +21,11 @@ public int ent1(Block set, Material m, BlockFace bf){
 		a = 12;
 	}
 	BlockFace up = BlockFace.UP;
+	@SuppressWarnings("unused")
 	Block setter = set.getRelative(BlockFace.UP, 1);
 
 	while (x < 4) {
+			@SuppressWarnings("unused")
 			int newx = x-1;
 			setter = set.getRelative(BlockFace.UP, x);
 			//START//
@@ -441,9 +443,11 @@ public int starter(Block set, Material m, BlockFace bf){
 		a = 12;
 	}
 	BlockFace up = BlockFace.UP;
+	@SuppressWarnings("unused")
 	Block setter = set.getRelative(BlockFace.UP, 1);
 
 	while (x < 4) {
+			@SuppressWarnings("unused")
 			int newx = x-1;
 			setter = set.getRelative(BlockFace.UP, x);
 			//START//

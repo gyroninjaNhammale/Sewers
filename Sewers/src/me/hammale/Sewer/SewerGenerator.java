@@ -25,6 +25,7 @@ public class SewerGenerator {
 		
 		Block down2 = set.getRelative(BlockFace.DOWN, 7);
 		Block n2 = down2.getRelative(BlockFace.SOUTH, 8);
+		@SuppressWarnings("unused")
 		int t0 = tun.nstStraight(n2, m, bf2);
 		
 		//5 BLOCKS TO MIDDLE!
@@ -47,19 +48,23 @@ public class SewerGenerator {
 		int t5 = tun.ewtStraight(w1, m, bf4);
 		Block hut0 = w.getRelative(BlockFace.WEST, t4-7);
 		Block hut1 = hut0.getRelative(BlockFace.NORTH, 2);
+		@SuppressWarnings("unused")
 		int h1 = hut.hut1(hut1, m, bf1);
 	
 		Block setter0 = w1.getRelative(BlockFace.WEST, t5+8);
 		Block setter2 = setter0.getRelative(BlockFace.NORTH, 1);
 		Block pit1 = setter2.getRelative(BlockFace.UP, 5);
+		@SuppressWarnings("unused")
 		int pit01 = pit.pit1(pit1, m, bf3);
 		
 		Block setter1 = w1.getRelative(BlockFace.WEST, t5);
 		Block w2 = setter1.getRelative(BlockFace.NORTH, 1);
+		@SuppressWarnings("unused")
 		int t6 = tun.nstStraight(w2, m, bf1);
 		
 		Block n1 = w2.getRelative(BlockFace.WEST, 5);
 		Block n3 = n1.getRelative(BlockFace.SOUTH, 5);
+		@SuppressWarnings("unused")
 		int t13 = tun. nstStraight(n3, m, bf2);
 		
 		Block setter3 = setter2.getRelative(BlockFace.SOUTH, 3);
@@ -80,6 +85,7 @@ public class SewerGenerator {
 		
 		Block hut2 = w4.getRelative(BlockFace.SOUTH, t9);
 		Block hut3 = hut2.getRelative(BlockFace.NORTH, 3);
+		@SuppressWarnings("unused")
 		int h2 = hut.hut1(hut3, m, bf2);
 		
 //		Block w7 = w6.getRelative(BlockFace.WEST, t10);
@@ -91,17 +97,21 @@ public class SewerGenerator {
 		Block setter5 = w9.getRelative(BlockFace.WEST, t8+1);
 		Block setter6 = setter5.getRelative(BlockFace.NORTH, 1);
 		Block pit2 = setter6.getRelative(BlockFace.UP, 5);
+		@SuppressWarnings("unused")
 		int pit3 = pit.pit2(pit2, m, bf3);
 		
+		@SuppressWarnings("unused")
 		int t12 = tun.nstStraight(w9, m, bf1);
 		
 		Block w10 = setter3.getRelative(BlockFace.WEST, t7+6);
 		Block w11 = w10.getRelative(BlockFace.NORTH, t9);
+		@SuppressWarnings("unused")
 		int t14 = tun.nstStraight(w11, m, bf1);
 		
 		Block en = w6.getRelative(BlockFace.SOUTH, t10+4);
 		Block en0 = en.getRelative(BlockFace.UP, 1);
 		Block en1 = en0.getRelative(BlockFace.EAST, 3);
+		@SuppressWarnings("unused")
 		int entr1 = ent.ent1(en1, m, bf1);
 		
 		
@@ -117,6 +127,7 @@ public class SewerGenerator {
 		
 		Block s01 = s1.getRelative(BlockFace.EAST, t15-5);
 		Block s02 = s01.getRelative(BlockFace.SOUTH, 2);
+		@SuppressWarnings("unused")
 		int t015 = tun.nstStraight(s02, m, bf2);
 		
 		Block s3 = s2.getRelative(BlockFace.SOUTH, t15-6);
@@ -125,6 +136,7 @@ public class SewerGenerator {
 		Block en2 = e.getRelative(BlockFace.EAST, 12);
 		Block en3 = en2.getRelative(BlockFace.UP, 1);
 		Block en4 = en3.getRelative(BlockFace.SOUTH, 7);
+		@SuppressWarnings("unused")
 		int entr2 = ent.ent1(en4, m, bf2);
 		
 		Block s4 = s3.getRelative(BlockFace.SOUTH, t16-7);
@@ -133,6 +145,7 @@ public class SewerGenerator {
 		
 		Block hut4 = s4.getRelative(BlockFace.NORTH, 2);
 		Block hut5 = hut4.getRelative(BlockFace.WEST, t19-6);
+		@SuppressWarnings("unused")
 		int h3 = hut.hut1(hut5, m, bf1);
 		
 		Block e04 = e.getRelative(BlockFace.NORTH, 2);
@@ -140,6 +153,7 @@ public class SewerGenerator {
 		int t18 = tun.nstStraight(e4, m, bf1);
 		
 		Block e5 = e.getRelative(BlockFace.EAST, t3-2);
+		@SuppressWarnings("unused")
 		int t20 = tun.nstStraight(e5, m, bf2);
 				
 		Block e6 = s4.getRelative(BlockFace.EAST, t19);
@@ -149,6 +163,7 @@ public class SewerGenerator {
 		//Block hut6 = s3.getRelative(BlockFace.SOUTH, 1);
 		Block hut7 = s4.getRelative(BlockFace.EAST, t19-6);
 		Block hut8 = hut7.getRelative(BlockFace.NORTH, 3);
+		@SuppressWarnings("unused")
 		int h4 = hut.hut1(hut8, m, bf2);
 		
 		Block e9 = e6.getRelative(BlockFace.EAST, t22-2);
@@ -156,10 +171,13 @@ public class SewerGenerator {
 		int t23 = tun.ewtStraight(e10, m, bf4);
 		
 		Block n4 = e9.getRelative(BlockFace.EAST, t23-5);
+		@SuppressWarnings("unused")
 		Block n5 = n4.getRelative(BlockFace.SOUTH, 2);
+		@SuppressWarnings("unused")
 		int t24 = tun.ewtStraight(n4, m, bf4);
 		
 		Block e11 = e4.getRelative(BlockFace.EAST, t18-2);
+		@SuppressWarnings("unused")
 		int t25 = tun.nstStraight(e11, m, bf1);
 		
 		//*****END EAST START NORTH*****//
@@ -168,10 +186,13 @@ public class SewerGenerator {
 		int t26 = tun.nstStraight(n6, m, bf1);
 		
 		Block e12 = n6.getRelative(BlockFace.NORTH, t26-8);
+		@SuppressWarnings("unused")
 		Block e13 = n6.getRelative(BlockFace.EAST, 2);
+		@SuppressWarnings("unused")
 		int t28 = tun.ewtStraight(e12, m, bf3);		
 		
 		Block n7 = n6.getRelative(BlockFace.NORTH, t26-1);
+		@SuppressWarnings("unused")
 		int t27 = tun.nstStraight(n7, m, bf);
 		
 		Block e14 = n6.getRelative(BlockFace.NORTH, t26-5);
@@ -187,6 +208,7 @@ public class SewerGenerator {
 		
 		Block hut9 = e16.getRelative(BlockFace.WEST, t30-6);
 		Block hut10 = hut9.getRelative(BlockFace.SOUTH, 2);
+		@SuppressWarnings("unused")
 		int h5 = hut.hut1(hut10, m, bf2);
 		
 		Block n10 = n9.getRelative(BlockFace.NORTH, t31-1);
@@ -195,6 +217,7 @@ public class SewerGenerator {
 		Block setter7 = n10.getRelative(BlockFace.NORTH, t32);
 		Block setter8 = setter7.getRelative(BlockFace.WEST, 3);
 		Block pit4 = setter8.getRelative(BlockFace.UP, 5);
+		@SuppressWarnings("unused")
 		int p4 = pit.pit2(pit4, m, bf3);
 				
 		Block e17 = n6.getRelative(BlockFace.NORTH, t26-8);
@@ -204,6 +227,7 @@ public class SewerGenerator {
 		Block ent5 = e17.getRelative(BlockFace.EAST, t33);
 		Block ent6 = ent5.getRelative(BlockFace.UP, 1);
 		Block ent7 = ent6.getRelative(BlockFace.SOUTH, 7);
+		@SuppressWarnings("unused")
 		int entr3 = ent.ent1(ent7, m, bf2);
 		
 		Block e19 = n9.getRelative(BlockFace.NORTH, t31-2);
@@ -211,10 +235,12 @@ public class SewerGenerator {
 		int t34 = tun.ewtStraight(e20, m, bf4);	
 		
 		Block e21 = e20.getRelative(BlockFace.NORTH, t34-1);
+		@SuppressWarnings("unused")
 		int t35 = tun.ewtStraight(e21, m, bf4);	
 		
 		Block e24 = n9.getRelative(BlockFace.NORTH, t31-6);
 		Block e25 = e24.getRelative(BlockFace.EAST, 2);
+		@SuppressWarnings("unused")
 		int t39 = tun.ewtStraight(e25, m, bf3);
 		
 		//*****END NORTH START SOUTH*****//
@@ -231,6 +257,7 @@ public class SewerGenerator {
 				
 		Block hut11 = e23.getRelative(BlockFace.WEST, t38-8);
 		Block hut12 = hut11.getRelative(BlockFace.NORTH, 2);
+		@SuppressWarnings("unused")
 		int h6 = hut.hut1(hut12, m, bf1);
 		
 		Block e26 = s6.getRelative(BlockFace.SOUTH, t36-12);
@@ -244,6 +271,7 @@ public class SewerGenerator {
 		Block ent8 = e29.getRelative(BlockFace.SOUTH, t41);
 		Block ent9 = ent8.getRelative(BlockFace.UP, 1);
 		Block ent10 = ent9.getRelative(BlockFace.EAST, 3);
+		@SuppressWarnings("unused")
 		int entr4 = ent.ent1(ent10, m, bf2);
 		
 		Block e30 = s6.getRelative(BlockFace.SOUTH, t36-6);
@@ -252,6 +280,7 @@ public class SewerGenerator {
 		
 		Block e32 = e30.getRelative(BlockFace.WEST, t42-4);
 		Block e33 = e32.getRelative(BlockFace.NORTH, 2);
+		@SuppressWarnings("unused")
 		int t43 = tun.nstStraight(e33, m, bf1);
 		
 	}
@@ -276,6 +305,7 @@ public class SewerGenerator {
 		Block setter1 = setter.getRelative(BlockFace.NORTH, 6);
 		Block setter2 = setter1.getRelative(BlockFace.WEST, 3);
 		Block setter3 = setter2.getRelative(BlockFace.UP, 1);
+		@SuppressWarnings("unused")
 		int entr4 = ent.starter(setter3, m, bf1);
 		
 		
@@ -284,6 +314,7 @@ public class SewerGenerator {
 		
 		Block e1 = s1.getRelative(BlockFace.SOUTH, t2-6);
 		Block e2 = e1.getRelative(BlockFace.EAST, 2);
+		@SuppressWarnings("unused")
 		int t3 = tun.ewtStraight(e2, m, bf3);
 		
 		Block w1 = setter.getRelative(BlockFace.SOUTH, t1-4);
@@ -295,10 +326,12 @@ public class SewerGenerator {
 		
 		Block hut1 = w3.getRelative(BlockFace.WEST, t5-8);
 		Block hut2 = hut1.getRelative(BlockFace.NORTH, 2);
+		@SuppressWarnings("unused")
 		int h1 = hut.hut1(hut2, m, bf1);
 		
 		Block s2 = w3.getRelative(BlockFace.WEST, t5-5);
 		Block s3 = s2.getRelative(BlockFace.SOUTH, 2);
+		@SuppressWarnings("unused")
 		int t6 = tun.nstStraight(s3, m, bf2);
 		
 		Block n1 = w2.getRelative(BlockFace.WEST, t4-5);

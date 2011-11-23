@@ -2,9 +2,7 @@ package me.hammale.Sewer;
 
 import java.util.Random;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
@@ -64,6 +62,7 @@ public class manhole {
 				//
 				int ran3 = gen.nextInt(3);
 				int ran7 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran5 = gen.nextInt(3);
 				int ran6 = gen.nextInt(3);
 				set5.setType(m);
@@ -119,6 +118,7 @@ public class manhole {
 	
 	
 	public int man2(Block set, Material m, BlockFace bf){
+		@SuppressWarnings("unused")
 		int x = 1;
 		int a = gen.nextInt(35);
 		if (a < 20){
@@ -164,6 +164,7 @@ public class manhole {
 				//
 				int ran3 = gen.nextInt(3);
 				int ran7 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran5 = gen.nextInt(3);
 				int ran6 = gen.nextInt(3);
 				set5.setType(m);

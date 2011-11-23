@@ -228,7 +228,9 @@ public class Tunnel {
 				}
 				
 				int spawn = gen.nextInt(2);
+				@SuppressWarnings("unused")
 				World world = clr4.getWorld();
+				@SuppressWarnings("unused")
 				Location loc = clr1.getLocation();
 				int svar = 0;
 				while (svar != spawn){
@@ -453,7 +455,9 @@ public class Tunnel {
 				}
 				
 				int spawn =  gen.nextInt(2);
+				@SuppressWarnings("unused")
 				World world = clr4.getWorld();
+				@SuppressWarnings("unused")
 				Location loc = clr1.getLocation();
 				int svar = 0;
 				while (svar != spawn){

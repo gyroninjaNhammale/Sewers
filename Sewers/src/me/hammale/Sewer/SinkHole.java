@@ -2,13 +2,9 @@ package me.hammale.Sewer;
 
 import java.util.Random;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.block.Chest;
-import org.bukkit.inventory.ItemStack;
 
 public class SinkHole {
 
@@ -19,6 +15,7 @@ public class SinkHole {
 		if (a < 22){
 			a = 21;
 		}
+		@SuppressWarnings("unused")
 		int newx = x-1;
 		while (x < a) {						
 				Block set1 = b.getRelative(BlockFace.DOWN, x);									
@@ -219,8 +216,11 @@ public class SinkHole {
 				int ran11 = gen.nextInt(3);
 				int ran12 = gen.nextInt(3);
 				int ran13 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran14 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran15 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran16 = gen.nextInt(3);
 				int ran116 = gen.nextInt(3);
 				int ran117 = gen.nextInt(3);
@@ -229,17 +229,23 @@ public class SinkHole {
 				int ran22 = gen.nextInt(3);
 				int ran23 = gen.nextInt(3);
 				int ran24 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran25 = gen.nextInt(3);;
 				int ran26 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran27 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran28 = gen.nextInt(3);
 				int ran29 = gen.nextInt(3);
 				int ran210 = gen.nextInt(3);
 				int ran211 = gen.nextInt(3);
 				int ran212 = gen.nextInt(3);
 				int ran213 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran214 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran215 = gen.nextInt(3);
+				@SuppressWarnings("unused")
 				int ran216 = gen.nextInt(3);
 				int ran2116 = gen.nextInt(3);
 				int ran2117 = gen.nextInt(3);

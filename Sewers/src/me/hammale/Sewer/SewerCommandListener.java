@@ -13,6 +13,7 @@ public class SewerCommandListener implements CommandExecutor {
     
 	private final SewerGenerator sewergen = new SewerGenerator();
 	
+	@SuppressWarnings("unused")
 	private Sewer plugin;
  
 	public SewerCommandListener(Sewer plugin) {
