@@ -3,5 +3,5 @@ main: me.hammale.Sewer.Sewer
 version: 0.20
 commands:
     sewer:
-        description: Use this command to generate a sewer.
-        usage: Incorrect usage, try "/sewer create"
+        description: "Use this command to generate a sewer."
+        usage: "Incorrect usage, try /sewer create"
