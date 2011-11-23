@@ -5,6 +5,7 @@ import java.util.Random;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.Sign;
 
 public class AbandonedEntrance {
 
@@ -31,8 +32,12 @@ public class AbandonedEntrance {
 		set6.setType(Material.WOOD);
 		set7.setType(Material.WOOD);
 		set8.setType(Material.WOOD);
-		set9.setType(Material.WALL_SIGN); //sign will say be ware or something if you destroy it or click it it willl summon lightning to strike and the wood will disapear.
+		set9.setType(Material.WALL_SIGN);
+
+		Sign sign = (Sign)set9.getState();
+		sign.setLine(0, "Stay Out");
+		sign.setLine(1, "Danger!!!");
+		sign.setLine(2, "Tresspassers");
+		sign.setLine(3, "Will DIE!!!");
 	}
-	
-	
 }
