@@ -37,7 +37,9 @@ public class AbandonedEntrance {
 		set6.setType(Material.WOOD);
 		set7.setType(Material.WOOD);
 		set8.setType(Material.WOOD);
-		set9.setType(Material.WALL_SIGN);
+
+		byte flags = (byte) (0x3);//may need to be 0x2
+		set9.setTypeIdAndData(68, flags, true);
 
 		Sign sign = (Sign)set9.getState();
 		sign.setLine(0, "Stay Out");
@@ -59,7 +61,7 @@ public class AbandonedEntrance {
 	public boolean checkLocation(World w, int x, int y, int z){
 		Location l = new Location(w, x, y, z);
 		if(spying.contains(l)){
-			//DO SOMTHING INTERESTING HERE!
+			w.strikeLightning(l);
 			spying.remove(l);
 			return true;
 		}else{
