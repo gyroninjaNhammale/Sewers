@@ -2,9 +2,7 @@ package me.hammale.Sewer;
 
 import java.util.Random;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
@@ -426,18 +424,7 @@ public class pit {
 					clr7111.setType(Material.WATER);
 					clr71111.setType(Material.WATER);
 					clr711111.setType(Material.WATER);
-				}
-				int spawn = gen.nextInt(1);
-				@SuppressWarnings("unused")
-				World world = clr611.getWorld();
-				@SuppressWarnings("unused")
-				Location loc = clr611.getLocation();
-				int svar = 0;
-				while (svar != spawn){
-//				world.spawnCreature(loc, CreatureType.SILVERFISH);
-				svar++;
-				}
-				
+				}			
 				newx++;
 				x++;
 			}
@@ -860,17 +847,6 @@ public class pit {
 					clr71111.setType(Material.WATER);
 					clr711111.setType(Material.WATER);
 				}
-				int spawn = gen.nextInt(1);
-				@SuppressWarnings("unused")
-				World world = clr611.getWorld();
-				@SuppressWarnings("unused")
-				Location loc = clr611.getLocation();
-				int svar = 0;
-				while (svar != spawn){
-//				world.spawnCreature(loc, CreatureType.SILVERFISH);
-				svar++;
-				}
-				
 				newx++;
 				x++;
 			}
