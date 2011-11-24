@@ -1,8 +1,11 @@
 package me.hammale.Sewer;
 
+import java.util.HashSet;
 import java.util.Random;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
@@ -10,7 +13,9 @@ import org.bukkit.block.Sign;
 public class AbandonedEntrance {
 
 	Random gen = new Random();
-	public AbandonedEntrance (Block set, Material m, BlockFace bf){
+	public HashSet<Location> spying = new HashSet<Location>();
+	
+	public void entrance1(Block set, Material m, BlockFace bf){		
 
 		Block otherset = set.getRelative(bf, 0);
 		Block set1 = otherset.getRelative(BlockFace.WEST, 1);
@@ -39,5 +44,27 @@ public class AbandonedEntrance {
 		sign.setLine(1, "Danger!!!");
 		sign.setLine(2, "Tresspassers");
 		sign.setLine(3, "Will DIE!!!");
+		int x = sign.getX();
+		int y = sign.getY();
+		int z = sign.getZ();
+		
+		World w = sign.getWorld();
+		addLocation(w, x, y, z);
 	}
+	
+	public void addLocation(World w, int x, int y, int z){
+		Location l = new Location(w, x, y, z);
+		spying.add(l);		
+	}
+	public boolean checkLocation(World w, int x, int y, int z){
+		Location l = new Location(w, x, y, z);
+		if(spying.contains(l)){
+			//DO SOMTHING INTERESTING HERE!
+			spying.remove(l);
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }
