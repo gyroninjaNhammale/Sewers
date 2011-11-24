@@ -2,9 +2,7 @@ package me.hammale.Sewer;
 
 import java.util.Random;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Chest;
@@ -231,17 +229,7 @@ public class hut {
 					
 				}
 			    //END CHEST CODE//
-				
-				int spawn =  gen.nextInt(2);
-				@SuppressWarnings("unused")
-				World world = clr4.getWorld();
-				@SuppressWarnings("unused")
-				Location loc = clr1.getLocation();
-				int svar = 0;
-				while (svar != spawn){
-//				world.spawnCreature(loc, CreatureType.SILVERFISH);
-				svar++;
-				}
+
 				newx++;
 				x++;
 			}
