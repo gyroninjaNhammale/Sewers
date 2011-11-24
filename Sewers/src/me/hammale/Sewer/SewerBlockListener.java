@@ -14,9 +14,7 @@ public class SewerBlockListener extends BlockListener {
 		if(b.getType() == Material.WALL_SIGN){
 			Sign sign = (Sign)b.getState();	
 			if(sign.getLine(0).equals("Stay Out") && sign.getLine(1).equals("Danger!!!") && sign.getLine(2).equals("Trespassers") && sign.getLine(3).equals("Will DIE!!!")){
-				
-				System.out.println("U BROKE A SPECIAL SIGN!!!");
-				//PUT LITNING STUFF HERE :D
+
 				b.getWorld().strikeLightning(b.getLocation());
 				
 			}

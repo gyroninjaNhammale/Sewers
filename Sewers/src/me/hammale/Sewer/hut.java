@@ -72,12 +72,6 @@ public class hut {
 				int ran5 = gen.nextInt(3);
 				int ran6 = gen.nextInt(3);
 				set5.setType(m);
-				int rtorch1 = gen.nextInt(5);
-				if (rtorch1 == 1){
-					byte flags = (byte) (0x5);
-					set5.setType(Material.TORCH);
-					set5.setTypeIdAndData(50, flags, true);
-				}
 				set5.setData((byte) ran3);
 				set6.setType(m);
 				set6.setData((byte) ran7);
@@ -163,13 +157,25 @@ public class hut {
 				
 				if (x == 3 || x ==4) {
 					if (x==3){
-						byte direction = ( byte )( 0x0 );
-						direction = ( byte )( 0x1 );
-						clr12.setTypeIdAndData( 26, direction, true );
+						if(bf == BlockFace.SOUTH){
+							byte direction = ( byte )( 0x2 );
+							direction = ( byte )( 0x1 );
+							clr12.setTypeIdAndData( 26, direction, true );
+						}else{
+							byte direction = ( byte )( 0x0 );
+							direction = ( byte )( 0x1 );
+							clr12.setTypeIdAndData( 26, direction, true );
+						}
 					}else{
-						byte flags = ( byte )8;
-						flags = ( byte )( flags | 0x1 );
-						clr12.setTypeIdAndData( 26, flags, true );
+						if(bf == BlockFace.SOUTH){
+							byte flags = ( byte )8;
+							flags = ( byte )( flags | 0x2 );
+							clr12.setTypeIdAndData( 26, flags, true );
+						}else{
+							byte flags = ( byte )8;
+							flags = ( byte )( flags | 0x1 );
+							clr12.setTypeIdAndData( 26, flags, true );
+						}
 					}
 				}
 				
