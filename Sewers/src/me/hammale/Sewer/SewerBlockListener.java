@@ -1,28 +1,26 @@
 package me.hammale.Sewer;
 
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockListener;
 
 public class SewerBlockListener extends BlockListener {
 	
-	private final AbandonedEntrance aent = new AbandonedEntrance();
-	
 	public void onBlockBreak(BlockBreakEvent e) {
-		
 		Block b = e.getBlock();
-		if(b.getTypeId() == 63 || b.getTypeId() == 323){
-			World w = b.getWorld();
-			int x = b.getX();
-			int y = b.getY();
-			int z = b.getZ();			
-			boolean contains = aent.checkLocation(w, x, y, z);
-			
-			if(contains){
-				b.setTypeId(46);
+		if(b.getType() == Material.WALL_SIGN){
+			Sign sign = (Sign)b.getState();	
+			if(sign.getLine(0).equals("Stay Out") && sign.getLine(1).equals("Danger!!!") && sign.getLine(2).equals("Trespassers") && sign.getLine(3).equals("Will DIE!!!")){
+				
+				System.out.println("U BROKE A SPECIAL SIGN!!!");
+				//PUT LITNING STUFF HERE :D
+				
+				
 			}
-			
+					
 		}
 		
 	}

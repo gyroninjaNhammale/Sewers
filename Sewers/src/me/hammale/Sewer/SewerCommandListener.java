@@ -12,6 +12,7 @@ import org.bukkit.entity.Player;
 public class SewerCommandListener implements CommandExecutor {
     
 	private final SewerGenerator sewergen = new SewerGenerator();
+	private final AbandonedEntrance aent = new AbandonedEntrance();
 	
 	@SuppressWarnings("unused")
 	private Sewer plugin;
@@ -44,7 +45,9 @@ public class SewerCommandListener implements CommandExecutor {
 				Material m = (Material.SMOOTH_BRICK);
 				BlockFace bf = BlockFace.SOUTH;
 				Block set2 = b;
-				sewergen.start1(set2, m, bf);
+				//sewergen.start1(set2, m, bf);
+				aent.entrance1(set2, m, bf);
+				
 				p.sendMessage(ChatColor.GREEN + "Sewer Complete!");
 										
 			return true;
