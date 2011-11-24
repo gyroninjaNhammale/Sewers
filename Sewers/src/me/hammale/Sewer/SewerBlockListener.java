@@ -17,7 +17,7 @@ public class SewerBlockListener extends BlockListener {
 				
 				System.out.println("U BROKE A SPECIAL SIGN!!!");
 				//PUT LITNING STUFF HERE :D
-				
+				b.getWorld().strikeLightning(b.getLocation());
 				
 			}
 					
