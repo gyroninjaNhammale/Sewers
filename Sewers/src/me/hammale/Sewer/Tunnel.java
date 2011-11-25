@@ -119,8 +119,17 @@ public class Tunnel {
 				clr5.setType(Material.AIR);
 				}				
 				int i3 = gen.nextInt(10);
+				int i4 = gen.nextInt(5);
 				if (i3 == 2){
-					clr7.setTypeId(97);
+					if (i4 == 2){
+						byte flags = (byte) (0x2);
+						clr7.setTypeIdAndData(97, flags, true);
+					}
+					else {
+						int ran16 = gen.nextInt(3);
+						clr7.setType(m);
+						clr7.setData((byte) ran16);
+					}
 				}
 				else {
 					clr7.setType(Material.WATER);
@@ -340,8 +349,17 @@ public class Tunnel {
 				clr5.setType(Material.AIR);
 				}				
 				int i3 = gen.nextInt(10);
+				int i4 = gen.nextInt(5);
 				if (i3 == 2){
-					clr7.setTypeId(97);
+					if (i4 == 2){
+						byte flags = (byte) (0x2);
+						clr7.setTypeIdAndData(97, flags, true);
+					}
+					else {
+						int ran16 = gen.nextInt(3);
+						clr7.setType(m);
+						clr7.setData((byte) ran16);
+					}
 				}
 				else {
 					clr7.setType(Material.WATER);
