@@ -155,28 +155,35 @@ public class hut {
 					book2.setType(Material.BOOKSHELF);
 				}
 				
-				if (x == 3 || x ==4) {
-					if (x==3){
-						if(bf == BlockFace.SOUTH){
-							byte direction = ( byte )( 0x2 );
-							direction = ( byte )( 0x1 );
-							clr12.setTypeIdAndData( 26, direction, true );
-						}else{
-							byte direction = ( byte )( 0x0 );
-							direction = ( byte )( 0x1 );
-							clr12.setTypeIdAndData( 26, direction, true );
-						}
-					}else{
-						if(bf == BlockFace.SOUTH){
-							byte flags = ( byte )8;
-							flags = ( byte )( flags | 0x2 );
-							clr12.setTypeIdAndData( 26, flags, true );
-						}else{
-							byte flags = ( byte )8;
-							flags = ( byte )( flags | 0x1 );
-							clr12.setTypeIdAndData( 26, flags, true );
-						}
-					}
+//				if (x == 3 || x ==4) {
+//					if (x==3){
+//						if(bf == BlockFace.SOUTH){
+//							byte direction = ( byte )( 0x2 );
+//					direction = ( byte )( 0x1 );
+//							clr12.setTypeIdAndData( 26, direction, true );
+//						}else{
+//							byte direction = ( byte )( 0x0 );
+//							direction = ( byte )( 0x1 );
+//							clr12.setTypeIdAndData( 26, direction, true );
+//						}
+//					}else{
+//						if(bf == BlockFace.SOUTH){
+//							byte flags = ( byte )8;
+//							flags = ( byte )( flags | 0x2 );
+//							clr12.setTypeIdAndData( 26, flags, true );
+//						}else{
+//							byte flags = ( byte )8;
+//							flags = ( byte )( flags | 0x1 );
+//							clr12.setTypeIdAndData( 26, flags, true );
+//						}
+//					}
+//				}
+				if (x == 3) {
+					clr12.setType(Material.AIR);
+				}
+
+				if (x == 4) {
+					clr12.setType(Material.AIR);
 				}
 				
 				//START CHEST CODE//
