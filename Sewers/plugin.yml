@@ -1,4 +1,8 @@
 name: Sewers
+version: 0.20
+description: Sewers in Minecraft!
+load: STARTUP
+authors: [Hammale, Gyroninja]
 main: me.hammale.Sewer.Sewer
 version: 0.20
 commands:
