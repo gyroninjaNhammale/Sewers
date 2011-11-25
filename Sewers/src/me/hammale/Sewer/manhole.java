@@ -136,8 +136,27 @@ public class manhole {
 				Block set6 = set5.getRelative(BlockFace.SOUTH, 1);
 				Block set8 = set6.getRelative(BlockFace.EAST, 1);
 				Block set9 = set8.getRelative(BlockFace.EAST, 1);
-								
+				//Generate 2 high air so manhole is not buried.
 				Block clr1 = set1.getRelative(BlockFace.WEST, 1);
+				Block clr2 = set1.getRelative(BlockFace.UP, 1);
+				Block clr3 = set2.getRelative(BlockFace.UP, 1);
+				Block clr4 = set3.getRelative(BlockFace.UP, 1);
+				Block clr5 = set4.getRelative(BlockFace.UP, 1);
+				Block clr6 = set5.getRelative(BlockFace.UP, 1);
+				Block clr7 = set6.getRelative(BlockFace.UP, 1);
+				Block clr8 = set8.getRelative(BlockFace.UP, 1);
+				Block clr9 = set9.getRelative(BlockFace.UP, 1);
+				Block clr10 = clr1.getRelative(BlockFace.UP, 1);
+				Block clr11 = clr2.getRelative(BlockFace.UP, 1);
+				Block clr12 = clr3.getRelative(BlockFace.UP, 1);
+				Block clr13 = clr4.getRelative(BlockFace.UP, 1);
+				Block clr14 = clr5.getRelative(BlockFace.UP, 1);
+				Block clr15 = clr6.getRelative(BlockFace.UP, 1);
+				Block clr16 = clr7.getRelative(BlockFace.UP, 1);
+				Block clr17 = clr8.getRelative(BlockFace.UP, 1);
+				Block clr18 = clr9.getRelative(BlockFace.UP, 1);
+				Block clr19 = clr10.getRelative(BlockFace.UP, 1);
+
 								
 				clr1.setType(Material.AIR);
 
@@ -192,13 +211,34 @@ public class manhole {
 				set9.setData((byte) ran12);
 										
 					if (d == 1){
-					clr1.setType(Material.IRON_FENCE);					
+					clr1.setType(Material.IRON_FENCE);
 					}else{
 						byte flags = ( byte )3;
 						clr1.setType(Material.LADDER);
 						clr1.setData(flags);
 						i++;
-					}						
+					}
+					if (d == 1) {
+						//unburry the man hole. 
+						clr2.setType(Material.AIR);
+						clr3.setType(Material.AIR);
+						clr4.setType(Material.AIR);
+						clr5.setType(Material.AIR);
+						clr6.setType(Material.AIR);
+						clr7.setType(Material.AIR);
+						clr8.setType(Material.AIR);
+						clr9.setType(Material.AIR);
+						clr10.setType(Material.AIR);
+						clr11.setType(Material.AIR);
+						clr12.setType(Material.AIR);
+						clr13.setType(Material.AIR);
+						clr14.setType(Material.AIR);
+						clr15.setType(Material.AIR);
+						clr16.setType(Material.AIR);
+						clr17.setType(Material.AIR);
+						clr18.setType(Material.AIR);
+						clr19.setType(Material.AIR);
+					}
 				x++;
 				d++;
 			}
