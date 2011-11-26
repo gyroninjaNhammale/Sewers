@@ -42,11 +42,6 @@ Random gen = new Random();
 		sign.setLine(1, "Danger!!!");
 		sign.setLine(2, "Trespassers");
 		sign.setLine(3, "Will DIE!!!");
-		int x = sign.getX();
-		int y = sign.getY();
-		int z = sign.getZ();
-		
-		World w = sign.getWorld();
 	
 	}
 
