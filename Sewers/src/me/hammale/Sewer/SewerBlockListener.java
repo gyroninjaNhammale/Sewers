@@ -1,7 +1,6 @@
 package me.hammale.Sewer;
 
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.event.block.BlockBreakEvent;
