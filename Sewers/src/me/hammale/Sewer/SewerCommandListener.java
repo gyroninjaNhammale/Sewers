@@ -35,7 +35,7 @@ public class SewerCommandListener implements CommandExecutor {
 			if(arg.equalsIgnoreCase("create")){
 			
 			if (p == null) {
-				sender.sendMessage("This command can only be run by a player!");
+				sender.sendMessage("[Sewers] This command can only be run by a player!");
 			} else if (p.isOp()) {
 
 				Block b = p.getLocation().getBlock();

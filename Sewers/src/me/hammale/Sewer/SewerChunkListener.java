@@ -38,11 +38,11 @@ public class SewerChunkListener extends WorldListener {
 				 i++;
 			}
 
-				System.out.println("Generating Sewer @ X:" + down.getLocation().getX() + " Y:"+ down.getLocation().getY() + " Z:" + down.getLocation().getZ());
+				System.out.println("[Sewers] Generating Sewer @ X:" + down.getLocation().getX() + " Y:"+ down.getLocation().getY() + " Z:" + down.getLocation().getZ());
 				Material m = (Material.SMOOTH_BRICK);
 				BlockFace bf = BlockFace.SOUTH;
 				sewergen.start1(down, m, bf);
-				System.out.println("Sewer Complete!");
+				System.out.println("[Sewers] Sewer Complete!");
 				
 		    }	
 		}
