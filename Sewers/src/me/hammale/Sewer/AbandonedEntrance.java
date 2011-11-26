@@ -2,7 +2,6 @@ package me.hammale.Sewer;
 
 import java.util.Random;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
