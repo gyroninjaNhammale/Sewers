@@ -52,17 +52,15 @@ public class Sewer extends JavaPlugin {
 		
 	    config = getConfig();
 	    config.options().copyDefaults(true); 
-
 	    
-	    String path = "ChunkGeneration.AllowedWorlds.NORMAL";
-	    String path2 = "ChunkGeneration.AllowedWorlds.NETHER";
-	    String path3 = "ChunkGeneration.AllowedWorlds.THE END(unused)";
-	    String path4 = "ChunkGeneration.Frequency";
+	    for(World w : this.getServer().getWorlds()) {
+		    String wrld = w.getName();		        
+		    String path2 = "ChunkGeneration.World.AllowSewers." + wrld;		    
+		    config.addDefault(path2, 1);
+	    }
 	    
-	    config.addDefault(path, 1);
-	    config.addDefault(path2, 0);
-	    config.addDefault(path3, 0);
-	    config.addDefault(path4, 100);
+		String path1 = "ChunkGeneration.Frequency";
+	    config.addDefault(path1, 100);
 	    
 	    config.options().copyDefaults(true);
 	    saveConfig();
@@ -70,8 +68,8 @@ public class Sewer extends JavaPlugin {
 	
 	public int isAllowedWorld(World w){
 	    config = getConfig();
-	    Environment wrld = w.getEnvironment();
-	    int amnt = config.getInt("ChunkGeneration.AllowedWorlds." + wrld); 
+	    String wrld = w.getName();
+	    int amnt = config.getInt("ChunkGeneration.World.AllowSewers." + wrld); 
 	    return amnt;
 	}
 	
