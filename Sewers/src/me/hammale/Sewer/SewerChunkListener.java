@@ -20,7 +20,7 @@ public class SewerChunkListener extends WorldListener {
 		}
 	
 		public void onChunkPopulate(ChunkPopulateEvent event){
-			int ran = gen.nextInt(100);
+			int ran = gen.nextInt(plugin.getFreq());
 			if(ran == 0){
 			World w = event.getWorld();
 			if(plugin.isAllowedWorld(w) == 1){
