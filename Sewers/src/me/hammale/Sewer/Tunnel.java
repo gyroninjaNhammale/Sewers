@@ -115,6 +115,7 @@ public class Tunnel {
 				if (rtorch1 == 1){
 					byte flags = (byte) (0x4);
 					Block torch = set7.getRelative(BlockFace.SOUTH, 1);
+					torch.setType(Material.TORCH);
 					torch.setTypeIdAndData(50, flags, true);
 				}
 				set7.setData((byte) ran5);
@@ -283,8 +284,9 @@ public class Tunnel {
 				set7.setType(m);
 				int rtorch1 = gen.nextInt(15);
 				if (rtorch1 == 1){
-					byte flags = (byte) (0x1);
+					byte flags = (byte) (0x3);
 					Block torch = set7.getRelative(BlockFace.WEST, 1);
+					//torch.setType(Material.TORCH);
 					torch.setTypeIdAndData(50, flags, true);
 				}
 				set7.setData((byte) ran5);

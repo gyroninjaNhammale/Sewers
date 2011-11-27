@@ -20,7 +20,7 @@ public class bridge {
 		BlockFace bf3 = BlockFace.EAST;
 		BlockFace bf4 = BlockFace.WEST;
 		
-		int tun1 = tun.nstStraight(set, m, bf2);
+		int tun1 = tun.ewtStraight(set, m, bf4);
 		
 		int gap = gen.nextInt(25);
 		
@@ -32,6 +32,6 @@ public class bridge {
 		
 		Block bridge = set.getRelative(BlockFace.SOUTH, finalgap);
 		
-		int tun2 = tun.nstStraight(bridge, m, bf2);
+		int tun2 = tun.ewtStraight(bridge, m, bf4);
 	}
 }

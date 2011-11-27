@@ -69,8 +69,13 @@ public class AbandonedTunnel {
 				
 				Block side1 = clr7.getRelative(BlockFace.NORTH, 1);
 				int side1ran = gen.nextInt(3);
-				side1.setType(m);
-				side1.setData((byte) side1ran);
+				int ran25 = gen.nextInt(6);
+				if(ran25 == 1){
+					side1.setType(Material.WEB);
+				}else{										
+					side1.setType(m);
+					side1.setData((byte) side1ran);
+				}
 
 //				Block side2 = clr7.getRelative(BlockFace.SOUTH, 1);
 //				int side2ran = gen.nextInt(3);
@@ -111,11 +116,10 @@ public class AbandonedTunnel {
 				set6.setType(m);
 				set6.setData((byte) ran7);
 				set7.setType(m);
-				int rtorch1 = gen.nextInt(15);
+				int rtorch1 = gen.nextInt(30);
 				if (rtorch1 == 1){
-					byte flags = (byte) (0x4);
 					Block torch = set7.getRelative(BlockFace.SOUTH, 1);
-					torch.setTypeIdAndData(76, flags, true);
+					torch.setType(Material.WEB);
 				}
 				set7.setData((byte) ran5);
 				set8.setType(m);
@@ -155,6 +159,19 @@ public class AbandonedTunnel {
 				set16.setType(m);
 				set16.setData((byte) ran15);
 				
+				int ran20 = gen.nextInt(8);
+				if(ran20 == 1){
+					clr7.setType(Material.WEB);		
+				}else{
+					clr7.setType(Material.AIR);	
+				}
+				int ran21 = gen.nextInt(8);
+				if(ran21 == 1){
+					clr8.setType(Material.WEB);
+				}else{
+					clr8.setType(Material.AIR);
+				}
+				
 				if (x == a-1) {
 					int ran16 = gen.nextInt(3);
 					clr1.setType(m);
@@ -169,9 +186,21 @@ public class AbandonedTunnel {
 					clr4.setData((byte) ran17);
 					
 					clr5.setType(Material.IRON_FENCE);			
-					clr7.setType(Material.IRON_FENCE);
-					clr7.setType(Material.AIR);				
-					clr8.setType(Material.AIR);	
+
+					int ran23 = gen.nextInt(8);
+					if(ran23 == 1){
+						clr7.setType(Material.WEB);		
+					}else{
+						clr7.setType(Material.AIR);	
+					}
+					int ran24 = gen.nextInt(8);
+					if(ran24 == 1){
+						clr8.setType(Material.WEB);
+					}else{
+						clr8.setType(Material.AIR);
+					}
+					
+					
 					clr9.setType(Material.IRON_FENCE);
 				}
 				newx++;
@@ -218,7 +247,14 @@ public class AbandonedTunnel {
 				}
 				clr6.setType(Material.AIR);
 				clr4.setType(Material.WATER);
-				clr5.setType(Material.AIR);				
+				
+				int ran22 = gen.nextInt(8);
+				if(ran22 == 1){
+					clr5.setType(Material.WEB);
+				}else{
+					clr5.setType(Material.AIR);				
+				}
+				
 				int i3 = gen.nextInt(10);
 				int i4 = gen.nextInt(5);
 				if (i3 == 2){
@@ -240,9 +276,13 @@ public class AbandonedTunnel {
 
 				Block side1 = clr7.getRelative(BlockFace.EAST, 1);
 				int side1ran = gen.nextInt(3);
-				side1.setType(m);
-				side1.setData((byte) side1ran);
-
+				int ran23 = gen.nextInt(6);
+				if(ran23 == 1){
+					side1.setType(Material.WEB);
+				}else{										
+					side1.setType(m);
+					side1.setData((byte) side1ran);
+				}
 //				Block side2 = clr7.getRelative(BlockFace.WEST, 1);
 //				int side2ran = gen.nextInt(3);
 //				side2.setType(m);
@@ -281,10 +321,11 @@ public class AbandonedTunnel {
 				set6.setType(m);
 				set6.setData((byte) ran7);
 				set7.setType(m);
-				int rtorch1 = gen.nextInt(15);
+				int rtorch1 = gen.nextInt(30);
 				if (rtorch1 == 1){
-					byte flags = (byte) (0x1);
+					byte flags = (byte) (0x3);
 					Block torch = set7.getRelative(BlockFace.WEST, 1);
+					//torch.setType(Material.REDSTONE_TORCH_ON);
 					torch.setTypeIdAndData(76, flags, true);
 				}
 				set7.setData((byte) ran5);
@@ -324,7 +365,20 @@ public class AbandonedTunnel {
 				set15.setData((byte) ran14);
 				set16.setType(m);
 				set16.setData((byte) ran15);
-						
+				
+				int ran20 = gen.nextInt(8);
+				if(ran20 == 1){
+					clr7.setType(Material.WEB);		
+				}else{
+					clr7.setType(Material.AIR);	
+				}
+				int ran21 = gen.nextInt(8);
+				if(ran21 == 1){
+					clr8.setType(Material.WEB);
+				}else{
+					clr8.setType(Material.AIR);
+				}
+				
 				if (x == a-1) {
 					
 					int ran16 = gen.nextInt(3);
@@ -341,8 +395,18 @@ public class AbandonedTunnel {
 					
 					clr5.setType(Material.IRON_FENCE);			
 					clr7.setType(Material.IRON_FENCE);
-					clr7.setType(Material.AIR);				
-					clr8.setType(Material.AIR);	
+					int ran18 = gen.nextInt(8);
+					if(ran18 == 1){
+						clr7.setType(Material.WEB);		
+					}else{
+						clr7.setType(Material.AIR);	
+					}
+					int ran19 = gen.nextInt(8);
+					if(ran19 == 1){
+						clr8.setType(Material.WEB);
+					}else{
+						clr8.setType(Material.AIR);
+					}
 					clr9.setType(Material.IRON_FENCE);
 				}
 				newx++;
