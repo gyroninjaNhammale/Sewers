@@ -189,7 +189,7 @@ public class hut {
 				//START CHEST CODE//
 				if (x == 4){
 
-					int chestran = gen.nextInt(10);
+					int chestran = gen.nextInt(11);
 								
 					for (i = 1; i <= chestran; i++){
 						int matran = gen.nextInt(10);;
