@@ -95,29 +95,20 @@ public class Tunnel {
 				Block clr9 = clr8.getRelative(BlockFace.UP, 1);
 								
 				clr1.setType(Material.WATER);
-				int i0 = gen.nextInt(10);
-				if (i0 == 3){
-					clr2.setType(Material.IRON_FENCE);	
-				}
-				else {
-					clr2.setType(Material.AIR);
-				}
+				clr2.setType(Material.AIR);
 				clr6.setType(Material.AIR);
 				int i1 = gen.nextInt(10);
 				if (i1 == 3){
-					clr3.setType(Material.IRON_FENCE);	
-				}
-				else {
-				clr3.setType(Material.AIR);
+					clr3.setType(Material.WEB);	
+				}else if (i1 == 2){
+					Block otherside = clr3.getRelative(BlockFace.SOUTH, 2);
+					otherside.setType(Material.WEB);
+					clr3.setType(Material.AIR);
+				}else {
+					clr3.setType(Material.AIR);
 				}
 				clr4.setType(Material.WATER);
-				int i2 = gen.nextInt(10);
-				if (i2 == 3){
-					clr5.setType(Material.IRON_FENCE);	
-				}
-				else {
-				clr5.setType(Material.AIR);
-				}				
+				clr5.setType(Material.AIR);				
 				int i3 = gen.nextInt(10);
 				int i4 = gen.nextInt(5);
 				if (i3 == 2){
@@ -134,14 +125,19 @@ public class Tunnel {
 				else {
 					clr7.setType(Material.WATER);
 				}				
-				if (i2 == 3){
-					clr8.setType(Material.IRON_FENCE);	
-				}
-				else {
-					clr8.setType(Material.AIR);
-				}	
+				clr8.setType(Material.AIR);	
 				clr9.setType(Material.AIR);
+				
+				Block side1 = clr7.getRelative(BlockFace.NORTH, 1);
+				int side1ran = gen.nextInt(3);
+				side1.setType(m);
+				side1.setData((byte) side1ran);
 
+//				Block side2 = clr7.getRelative(BlockFace.SOUTH, 1);
+//				int side2ran = gen.nextInt(3);
+//				side2.setType(m);
+//				side2.setData((byte) side2ran);
+				
 				int other = gen.nextInt(3);
 				otherset.setType(m);
 				otherset.setData((byte) other);
@@ -178,7 +174,7 @@ public class Tunnel {
 				set7.setType(m);
 				int rtorch1 = gen.nextInt(15);
 				if (rtorch1 == 1){
-					byte flags = (byte) (0x5);
+					byte flags = (byte) (0x4);
 					Block torch = set7.getRelative(BlockFace.SOUTH, 1);
 					torch.setType(Material.TORCH);
 					torch.setTypeIdAndData(50, flags, true);
@@ -325,29 +321,20 @@ public class Tunnel {
 				Block clr9 = clr8.getRelative(BlockFace.UP, 1);
 								
 				clr1.setType(Material.WATER);
-				int i0 = gen.nextInt(10);
-				if (i0 == 3){
-					clr2.setType(Material.IRON_FENCE);	
-				}
-				else {
-					clr2.setType(Material.AIR);
-				}
-				clr6.setType(Material.AIR);
+				clr2.setType(Material.AIR);
 				int i1 = gen.nextInt(10);
 				if (i1 == 3){
-					clr3.setType(Material.IRON_FENCE);	
+					clr3.setType(Material.WEB);	
+				}else if (i1 == 4){
+					Block otherside = clr3.getRelative(BlockFace.EAST, 2);
+					otherside.setType(Material.WEB);
+					clr3.setType(Material.AIR);
+				}else {
+					clr3.setType(Material.AIR);
 				}
-				else {
-				clr3.setType(Material.AIR);
-				}
+				clr6.setType(Material.AIR);
 				clr4.setType(Material.WATER);
-				int i2 = gen.nextInt(10);
-				if (i2 == 3){
-					clr5.setType(Material.IRON_FENCE);	
-				}
-				else {
-				clr5.setType(Material.AIR);
-				}				
+				clr5.setType(Material.AIR);				
 				int i3 = gen.nextInt(10);
 				int i4 = gen.nextInt(5);
 				if (i3 == 2){
@@ -367,6 +354,16 @@ public class Tunnel {
 				clr8.setType(Material.AIR);	
 				clr9.setType(Material.AIR);
 
+				Block side1 = clr7.getRelative(BlockFace.EAST, 1);
+				int side1ran = gen.nextInt(3);
+				side1.setType(m);
+				side1.setData((byte) side1ran);
+
+//				Block side2 = clr7.getRelative(BlockFace.WEST, 1);
+//				int side2ran = gen.nextInt(3);
+//				side2.setType(m);
+//				side2.setData((byte) side2ran);
+				
 				int other = gen.nextInt(3);
 				otherset.setType(m);
 				otherset.setData((byte) other);
@@ -402,7 +399,7 @@ public class Tunnel {
 				set7.setType(m);
 				int rtorch1 = gen.nextInt(15);
 				if (rtorch1 == 1){
-					byte flags = (byte) (0x5);
+					byte flags = (byte) (0x1);
 					Block torch = set7.getRelative(BlockFace.WEST, 1);
 					torch.setType(Material.TORCH);
 					torch.setTypeIdAndData(50, flags, true);

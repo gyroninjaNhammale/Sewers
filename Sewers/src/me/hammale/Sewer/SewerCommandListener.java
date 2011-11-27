@@ -37,9 +37,8 @@ public class SewerCommandListener implements CommandExecutor {
 			if (p == null) {
 				sender.sendMessage("[Sewers] This command can only be run by a player!");
 			} else if (p.isOp()) {
-
-				Block b = p.getLocation().getBlock();
 				p.sendMessage(ChatColor.GREEN + "Generating Sewer...");
+				Block b = p.getLocation().getBlock();
 				b.setType(Material.AIR);
 				Material m = (Material.SMOOTH_BRICK);
 				BlockFace bf = BlockFace.NORTH;
