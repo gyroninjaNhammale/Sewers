@@ -7,4 +7,4 @@ main: me.hammale.Sewer.Sewer
 commands:
     sewer:
         description: "Use this command to generate a sewer."
-        usage: "Incorrect usage, try /sewer create"
+        usage: "Sewers 0.2 Pre-release commands: /sewer create"
