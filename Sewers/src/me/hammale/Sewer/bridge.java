@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class bridge {
 
 	Random gen = new Random();
-	private final Tunnel tun = new Tunnel();
+	private final AbandonedTunnel tun = new AbandonedTunnel();
 	
 	public void nsbridge(Block set, Material m, BlockFace bf){
 
@@ -22,10 +22,10 @@ public class bridge {
 		
 		int tun1 = tun.nstStraight(set, m, bf2);
 		
-		int gap = gen.nextInt(15);
+		int gap = gen.nextInt(25);
 		
-		if(gap <= 5){
-			gap = 8;
+		if(gap <= 10){
+			gap = 10;
 		}
 		
 		int finalgap = gap+tun1;

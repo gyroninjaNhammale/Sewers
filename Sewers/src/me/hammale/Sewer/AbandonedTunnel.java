@@ -6,7 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
-public class Tunnel {
+public class AbandonedTunnel {
 
 	Random gen = new Random();
 	public int ewtStraight(Block set, Material m, BlockFace bf){
