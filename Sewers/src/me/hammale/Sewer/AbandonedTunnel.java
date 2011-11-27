@@ -6,7 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
-public class Tunnel {
+public class AbandonedTunnel {
 
 	Random gen = new Random();
 	public int ewtStraight(Block set, Material m, BlockFace bf){
@@ -115,7 +115,7 @@ public class Tunnel {
 				if (rtorch1 == 1){
 					byte flags = (byte) (0x4);
 					Block torch = set7.getRelative(BlockFace.SOUTH, 1);
-					torch.setTypeIdAndData(50, flags, true);
+					torch.setTypeIdAndData(76, flags, true);
 				}
 				set7.setData((byte) ran5);
 				set8.setType(m);
@@ -285,7 +285,7 @@ public class Tunnel {
 				if (rtorch1 == 1){
 					byte flags = (byte) (0x1);
 					Block torch = set7.getRelative(BlockFace.WEST, 1);
-					torch.setTypeIdAndData(50, flags, true);
+					torch.setTypeIdAndData(76, flags, true);
 				}
 				set7.setData((byte) ran5);
 				set8.setType(m);
