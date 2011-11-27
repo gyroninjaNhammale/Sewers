@@ -218,15 +218,22 @@ public class Tunnel {
 				set16.setData((byte) ran15);
 				
 				if (x == a-1) {
-					clr1.setType(Material.IRON_FENCE);
+					int ran16 = gen.nextInt(3);
+					clr1.setType(m);
+					clr1.setData((byte) ran16);
+					
 					clr2.setType(Material.IRON_FENCE);
 					clr3.setType(Material.IRON_FENCE);
 					clr6.setType(Material.IRON_FENCE);
-					clr4.setType(Material.IRON_FENCE);
+
+					int ran17 = gen.nextInt(3);
+					clr4.setType(m);
+					clr4.setData((byte) ran17);
+					
 					clr5.setType(Material.IRON_FENCE);			
 					clr7.setType(Material.IRON_FENCE);
-					clr7.setType(Material.IRON_FENCE);				
-					clr8.setType(Material.IRON_FENCE);	
+					clr7.setType(Material.AIR);				
+					clr8.setType(Material.AIR);	
 					clr9.setType(Material.IRON_FENCE);
 				}
 				newx++;
@@ -326,8 +333,8 @@ public class Tunnel {
 				if (i1 == 3){
 					clr3.setType(Material.WEB);	
 				}else if (i1 == 4){
-					Block otherside = clr3.getRelative(BlockFace.EAST, 2);
-					otherside.setType(Material.WEB);
+					Block otherside = clr3.getRelative(BlockFace.WEST, 2);
+					otherside.setType(Material.WOOL);
 					clr3.setType(Material.AIR);
 				}else {
 					clr3.setType(Material.AIR);
@@ -401,7 +408,7 @@ public class Tunnel {
 				if (rtorch1 == 1){
 					byte flags = (byte) (0x1);
 					Block torch = set7.getRelative(BlockFace.WEST, 1);
-					torch.setType(Material.TORCH);
+					torch.setType(Material.GLOWSTONE);
 					torch.setTypeIdAndData(50, flags, true);
 				}
 				set7.setData((byte) ran5);
@@ -443,15 +450,23 @@ public class Tunnel {
 				set16.setData((byte) ran15);
 						
 				if (x == a-1) {
-					clr1.setType(Material.IRON_FENCE);
+					
+					int ran16 = gen.nextInt(3);
+					clr1.setType(m);
+					clr1.setData((byte) ran16);
+					
 					clr2.setType(Material.IRON_FENCE);
 					clr3.setType(Material.IRON_FENCE);
 					clr6.setType(Material.IRON_FENCE);
-					clr4.setType(Material.IRON_FENCE);
+
+					int ran17 = gen.nextInt(3);
+					clr4.setType(m);
+					clr4.setData((byte) ran17);
+					
 					clr5.setType(Material.IRON_FENCE);			
 					clr7.setType(Material.IRON_FENCE);
-					clr7.setType(Material.IRON_FENCE);				
-					clr8.setType(Material.IRON_FENCE);	
+					clr7.setType(Material.AIR);				
+					clr8.setType(Material.AIR);	
 					clr9.setType(Material.IRON_FENCE);
 				}
 				newx++;
