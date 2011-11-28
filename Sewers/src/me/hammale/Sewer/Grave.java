@@ -553,25 +553,7 @@ public class Grave {
 				set12.setTypeIdAndData(98, moss, true);
 			}
 
-			//Start signs.
 
-			if (x == 4 || x == 7  || x == 10 || x == 13 || x ==16) {
-
-			System.out.println(":P");
-			set13.setTypeIdAndData(98, moss, true);
-			set56.setTypeIdAndData(63, sdir, true);
-			set57.setTypeIdAndData(63, sdir, true);
-			set58.setTypeIdAndData(63, sdir, true);
-			set59.setTypeIdAndData(63, sdir, true);
-			set60.setTypeIdAndData(63, sdir, true);
-			set61.setTypeIdAndData(63, sdir, true);
-			set62.setTypeIdAndData(63, sdir, true);
-			set63.setTypeIdAndData(63, sdir, true);
-			set64.setTypeIdAndData(63, sdir, true);
-			set65.setTypeIdAndData(63, sdir, true);
-			set66.setTypeIdAndData(63, sdir, true);
-			set67.setTypeIdAndData(98, moss, true);
-			}
 
 			//Generate front and back walls.
 
@@ -696,7 +678,34 @@ public class Grave {
 			set101.setTypeIdAndData(98, moss, true);
 			set102.setTypeIdAndData(98, moss, true);
 			set103.setTypeIdAndData(98, moss, true);
+			
+			
+			
+			//Start signs.
+
+			if (x == 4 || x == 7  || x == 10 || x == 13 || x ==16) {
+
+			System.out.println("starting signs...");
+			set13.setTypeIdAndData(98, moss, true);
+			set56.setTypeIdAndData(63, sdir, true);
+			set57.setTypeIdAndData(63, sdir, true);
+			set58.setTypeIdAndData(63, sdir, true);
+			set59.setTypeIdAndData(63, sdir, true);
+			set60.setTypeIdAndData(63, sdir, true);
+			set61.setTypeIdAndData(63, sdir, true);
+			set62.setTypeIdAndData(63, sdir, true);
+			set63.setTypeIdAndData(63, sdir, true);
+			set64.setTypeIdAndData(63, sdir, true);
+			set65.setTypeIdAndData(63, sdir, true);
+			set66.setTypeIdAndData(63, sdir, true);
+			set67.setTypeIdAndData(98, moss, true);
+			}
+			
+			
+			
 		}
+		
+		
 		return a;
 	}
 }
