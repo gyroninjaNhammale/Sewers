@@ -186,13 +186,14 @@ public class Grave {
 
 				set17.setTypeIdAndData(98, moss, true);
 				set44.setType(Material.WOOD);
-				int ran = gen.nextInt(3);
-				if (ran == 0) {
-					set45.setType(Material.AIR);
+				int ran = gen.nextInt(10);
+
+				if (ran == 0 || ran == 1 || ran == 2) {
+					set45.setType(Material.LAVA);
 				}
 
-				else if (ran == 1) {
-					set45.setType(Material.LAVA);
+				if (ran == 3 || ran == 4 || ran == 5 || ran == 6 ||ran == 7 || ran ==8) {
+					set45.setType(Material.AIR);
 				}
 
 				else {
@@ -687,17 +688,17 @@ public class Grave {
 
 			System.out.println("starting signs...");
 			set13.setTypeIdAndData(98, moss, true);
-			set56.setTypeIdAndData(63, sdir, true);
+			set56.setType(Material.AIR);
 			set57.setTypeIdAndData(63, sdir, true);
-			set58.setTypeIdAndData(63, sdir, true);
+			set58.setType(Material.AIR);
 			set59.setTypeIdAndData(63, sdir, true);
-			set60.setTypeIdAndData(63, sdir, true);
+			set60.setType(Material.AIR);
 			set61.setTypeIdAndData(63, sdir, true);
-			set62.setTypeIdAndData(63, sdir, true);
+			set62.setType(Material.AIR);
 			set63.setTypeIdAndData(63, sdir, true);
-			set64.setTypeIdAndData(63, sdir, true);
+			set64.setType(Material.AIR);
 			set65.setTypeIdAndData(63, sdir, true);
-			set66.setTypeIdAndData(63, sdir, true);
+			set66.setType(Material.AIR);
 			set67.setTypeIdAndData(98, moss, true);
 			}
 			
