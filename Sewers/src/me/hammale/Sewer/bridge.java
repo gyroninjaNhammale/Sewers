@@ -72,7 +72,11 @@ public class bridge {
 			clr1.setType(Material.AIR);
 			clr2.setType(Material.AIR);
 			clr3.setType(Material.AIR);
+//			if(x == 1 && i == 1 || i == finalgap-2){
 			clr4.setType(Material.AIR);
+//			}else{
+//				clr4.setType(Material.AIR);
+//			}
 			clr5.setType(Material.AIR);
 			clr6.setType(Material.AIR);
 			clr7.setType(Material.AIR);
@@ -153,6 +157,13 @@ public class bridge {
 				int ran1 = gen.nextInt(3);
 				set3.setType(m);
 				set3.setData((byte) ran1);
+			}
+			if(i == 1 || i == finalgap-2){
+			Block east = clr4.getRelative(BlockFace.EAST, 1);
+			Block west = clr4.getRelative(BlockFace.WEST, 1);
+			clr4.setType(Material.IRON_FENCE);
+			east.setType(Material.IRON_FENCE);
+			west.setType(Material.IRON_FENCE);
 			}
 			x++;
 			}						
