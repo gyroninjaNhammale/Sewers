@@ -816,7 +816,7 @@ public int starter(Block set, Material m, BlockFace bf){
 						chest.getInventory().addItem(new ItemStack[] { new ItemStack(mat, amt) });
 					}
 					else {
-						chest.getInventory().addItem(new ItemStack[] { new ItemStack(mat, 0) });
+						chest.getInventory().addItem(new ItemStack[] { new ItemStack(mat, 1) });
 					}
 				}
 			}

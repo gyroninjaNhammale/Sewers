@@ -236,7 +236,7 @@ public class hut {
 						}
 
 						else {
-							chest.getInventory().addItem(new ItemStack[] { new ItemStack(mat, 0) });
+							chest.getInventory().addItem(new ItemStack[] { new ItemStack(mat, 1) });
 						}
 					}
 					
