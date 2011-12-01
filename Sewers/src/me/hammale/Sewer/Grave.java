@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Chest;
+import org.bukkit.block.Sign;
 import org.bukkit.inventory.ItemStack;
 
 public class Grave {
@@ -124,7 +125,7 @@ public class Grave {
 			//Assign the moss stone and sign direction.
 
 			byte moss = (byte) (0x1);
-			byte sdir = (byte) (0x4);
+			byte sdir = (byte) (0xC);
 
 			//Start bottom floor.
 
@@ -700,13 +701,115 @@ public class Grave {
 			set65.setTypeIdAndData(63, sdir, true);
 			set66.setType(Material.AIR);
 			set67.setTypeIdAndData(98, moss, true);
+
+			Sign sign = (Sign)set57.getState();
+			Sign sign1 = (Sign)set59.getState();
+			Sign sign2 = (Sign)set61.getState();
+			Sign sign3 = (Sign)set63.getState();
+			Sign sign4 = (Sign)set65.getState();
+
+			//give text to the signs
+
+			String name = SignText();
+			String name1 = SignText();
+			String name2 = SignText();
+			String name3 = SignText();
+			String name4 = SignText();
+
+			//give signs text
+
+			sign.setLine(0, name);
+			sign1.setLine(0, name1);
+			sign2.setLine(0, name2);
+			sign3.setLine(0, name3);
+			sign4.setLine(0, name4);
+
 			}
 			
 			
 			
 		}
-		
-		
 		return a;
 	}
+
+	public String SignText() {
+		
+		//varible for string
+		String stext = " ";
+
+		//assign random
+
+		int ran = gen.nextInt(30);
+
+		//Assign text to varible
+
+		switch(ran) {
+
+			case 0 : stext = "Dead"; break;
+
+			case 1 : stext = "Billy Bob Joe"; break;
+
+			case 2 : stext = "Gyroninja"; break;
+
+			case 3 : stext = "Hammale"; break;
+
+			case 4 : stext = "Th3 Controller"; break;
+
+			case 5 : stext = "Old man Jenkins"; break;
+
+			case 6 : stext = "You"; break;
+
+			case 7 : stext = "Ima Fail"; break;
+
+			case 8 : stext = "Alive"; break;
+
+			case 9 : stext = "Abby Normal"; break;
+
+			case 10 : stext = "Frank"; break;
+
+			case 11 : stext = "Your mom"; break;
+
+			case 12 : stext = "Jimmy Joe"; break;
+
+			case 13 : stext = "Kamen"; break;
+
+			case 14 : stext = "Wesley"; break;
+
+			case 15 : stext = "Finn"; break;
+
+			case 16 : stext = "Matt"; break;
+
+			case 17 : stext = "Taylor"; break;
+
+			case 18 : stext = "Alex"; break;
+
+			case 19 : stext = "Max"; break;
+
+			case 20 : stext = "Michael"; break;
+
+			case 21 : stext = "Philip"; break;
+
+			case 22 : stext = "Robert"; break;
+
+			case 23 : stext = "Notch"; break;
+
+			case 24 : stext = "Rover"; break;
+
+			case 25 : stext = "Jakob"; break;
+
+			case 26 : stext = "Brandon"; break;
+
+			case 27 : stext = "James"; break;
+
+			case 28 : stext = "Aaron"; break;
+
+			case 29 : stext = "Lucky"; break;
+
+			default : stext = "EROOR"; break;
+
+		}
+
+		return stext;
+	}
+
 }
