@@ -15,6 +15,7 @@ public class SewerCommandListener implements CommandExecutor {
 	private final bridge bridge = new bridge();
 	private final Grave grave = new Grave();
 	private final spiderNest nest = new spiderNest();
+	private final CaveIn cavein = new CaveIn();
 	
 	@SuppressWarnings("unused")
 	private Sewer plugin;
@@ -47,8 +48,9 @@ public class SewerCommandListener implements CommandExecutor {
 				BlockFace bf = BlockFace.NORTH;
 				Block set2 = b;
 				//sewergen.start1(set2, m, bf);
-				nest.nest1(set2, m, bf);
+				//nest.nest1(set2, m, bf);
 				//bridge.nsbridge(set2, m, bf);
+				cavein.cavein1(set2, m, bf);
 				//grave.grave(set2, m, bf);
 				p.sendMessage(ChatColor.GREEN + "Sewer Complete!");
 										
