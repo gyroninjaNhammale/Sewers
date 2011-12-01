@@ -15,17 +15,29 @@ import org.bukkit.inventory.ItemStack;
 public class spiderNest {
 
 	Random gen = new Random();
+
+	private final AbandonedTunnel tun = new AbandonedTunnel();
 	
 	public void nest1(Block set, Material m, BlockFace bf){
 
+
+		
 		BlockFace bf1 = BlockFace.NORTH;
 		BlockFace bf2 = BlockFace.SOUTH;
 		BlockFace bf3 = BlockFace.EAST;
 		BlockFace bf4 = BlockFace.WEST;
-			
+				
+		int tun1 = tun.nstStraight(set, m, bf);
+		
+		int distance = tun1/2-5;
+		
+		Block initialset0 = set.getRelative(bf1, distance);
+		Block initialset1 = initialset0.getRelative(bf4, 4);
+		Block initialset = initialset1.getRelative(BlockFace.DOWN, 7);
+		
 		int i = 0;
 		while(i <= 7){
-			Block otherset = set.getRelative(BlockFace.UP, i);
+			Block otherset = initialset.getRelative(BlockFace.UP, i);
 			Block set1 = otherset.getRelative(bf1, 1);
 			Block set2 = set1.getRelative(bf1, 1);
 			Block set3 = set2.getRelative(bf1, 1);
@@ -265,7 +277,152 @@ public class spiderNest {
 				BlockState state = spawner2.getState();
 				CreatureSpawner spawner3 = (CreatureSpawner) state;
 				CreatureType type = CreatureType.CAVE_SPIDER;
+				
+				Block s0 = spawner2.getRelative(BlockFace.DOWN, 1);
+				
+				Block s1 = s0.getRelative(bf1, 1);
+				Block s2 = s0.getRelative(bf1, 2);
+				Block s3 = s0.getRelative(bf1, 3);
+				
+				Block s4 = s0.getRelative(bf2, 1);
+				Block s5 = s0.getRelative(bf2, 2);
+				Block s6 = s0.getRelative(bf2, 3);
+				
+				Block s7 = s0.getRelative(bf3, 1);
+				Block s8 = s0.getRelative(bf3, 2);
+				Block s9 = s0.getRelative(bf3, 3);
+				
+				Block s10 = s0.getRelative(bf4, 1);
+				Block s11 = s0.getRelative(bf4, 2);
+				Block s12 = s0.getRelative(bf4, 3);
+				
+				s0.setTypeId(98);
+				s1.setTypeId(98);
+				s2.setTypeId(98);
+				s3.setTypeId(98);
+				s4.setTypeId(98);
+				s5.setTypeId(98);
+				s6.setTypeId(98);
+				s7.setTypeId(98);
+				s8.setTypeId(98);
+				s9.setTypeId(98);
+				s10.setTypeId(98);
+				s11.setTypeId(98);
+				s12.setTypeId(98);
+				
 				spawner3.setCreatureType(type);
+			}
+			if(i == 1){
+				i1 = 2;
+				while(i1 <= 6){
+					Block clr = set41.getRelative(bf4, i1);
+					clr.setType(Material.SMOOTH_BRICK);								
+
+					Block clr1 = set42.getRelative(bf4, i1);
+					clr1.setType(Material.SMOOTH_BRICK);
+
+					Block clr2 = set43.getRelative(bf4, i1);
+					clr2.setType(Material.SMOOTH_BRICK);
+				
+					Block clr3 = set44.getRelative(bf4, i1);
+					clr3.setType(Material.SMOOTH_BRICK);				
+
+					Block clr4 = set45.getRelative(bf4, i1);
+					clr4.setType(Material.SMOOTH_BRICK);		
+
+					Block clr5 = set46.getRelative(bf4, i1);
+					clr5.setType(Material.SMOOTH_BRICK);
+			
+					Block clr6 = set47.getRelative(bf4, i1);
+					clr6.setType(Material.SMOOTH_BRICK);			
+
+					Block clr7 = set48.getRelative(bf4, i1);
+					clr7.setType(Material.SMOOTH_BRICK);
+					i1++;
+				}					
+			}
+			if(i == 7 || i == 6 || i ==5){
+				i1 = 2;
+				while(i1 <= 6){
+					Block clr2 = set43.getRelative(bf4, i1);
+					clr2.setType(Material.AIR);
+				
+					Block clr3 = set44.getRelative(bf4, i1);
+					clr3.setType(Material.AIR);				
+
+					Block clr4 = set45.getRelative(bf4, i1);
+					clr4.setType(Material.AIR);			
+					i1++;
+				}					
+			}
+			if(i == 7){
+				i1 = 2;
+				while(i1 <= 6){
+					Block clr = set41.getRelative(bf4, i1);
+					Block up = clr.getRelative(BlockFace.UP, 1);
+					if(up.getTypeId() != 98){
+						up.setType(Material.WATER);
+					}
+					
+					clr.setType(Material.IRON_FENCE);								
+
+					Block clr1 = set42.getRelative(bf4, i1);
+					clr1.setType(Material.IRON_FENCE);
+					up = clr1.getRelative(BlockFace.UP, 1);
+					if(up.getTypeId() != 98){
+						up.setType(Material.WATER);
+					}
+					
+					
+					Block clr2 = set43.getRelative(bf4, i1);
+					clr2.setType(Material.IRON_FENCE);
+					up = clr2.getRelative(BlockFace.UP, 1);
+					if(up.getTypeId() != 98){
+						up.setType(Material.WATER);
+					}
+					
+					
+					Block clr3 = set44.getRelative(bf4, i1);
+					clr3.setType(Material.IRON_FENCE);				
+					up = clr3.getRelative(BlockFace.UP, 1);
+					
+					if(up.getTypeId() != 98){
+						up.setType(Material.WATER);
+					}
+					
+					Block clr4 = set45.getRelative(bf4, i1);
+					clr4.setType(Material.IRON_FENCE);		
+					up = clr4.getRelative(BlockFace.UP, 1);
+					if(up.getTypeId() != 98){
+						up.setType(Material.WATER);
+					}
+					
+					
+					Block clr5 = set46.getRelative(bf4, i1);
+					clr5.setType(Material.IRON_FENCE);
+					up = clr5.getRelative(BlockFace.UP, 1);
+					if(up.getTypeId() != 98){
+						up.setType(Material.WATER);
+					}
+					
+					
+					Block clr6 = set47.getRelative(bf4, i1);
+					clr6.setType(Material.IRON_FENCE);			
+					up = clr6.getRelative(BlockFace.UP, 1);
+					if(up.getTypeId() != 98){
+						up.setType(Material.WATER);
+					}
+					
+					
+					Block clr7 = set48.getRelative(bf4, i1);
+					clr7.setType(Material.IRON_FENCE);
+					up = clr7.getRelative(BlockFace.UP, 1);
+					if(up.getTypeId() != 98){
+						up.setType(Material.WATER);
+					}
+					
+					i1++;
+				}					
 			}
 			i++;
 		}
