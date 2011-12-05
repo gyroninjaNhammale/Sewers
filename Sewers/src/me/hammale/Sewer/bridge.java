@@ -13,7 +13,7 @@ public class bridge {
 	Random gen = new Random();
 	private final AbandonedTunnel tun = new AbandonedTunnel();
 	
-	public void nsbridge(Block set, Material m, BlockFace bf){
+	public int nsbridge(Block set, Material m, BlockFace bf){
 
 		BlockFace bf1 = BlockFace.NORTH;
 		BlockFace bf2 = BlockFace.SOUTH;
@@ -173,5 +173,6 @@ public class bridge {
 		Block bridge = set.getRelative(bf, tun1+i-2);
 		
 		int tun2 = tun.nstStraight(bridge, m, bf);
+		return finalgap+tun2;
 	}
 }

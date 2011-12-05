@@ -125,7 +125,7 @@ public class Grave {
 			//Assign the moss stone and sign direction.
 
 			byte moss = (byte) (0x1);
-			byte sdir = (byte) (0xC);
+			byte sdir = (byte) (0x3);
 
 			//Start bottom floor.
 

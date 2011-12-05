@@ -13,7 +13,14 @@ public class SewerGenerator {
 	private final SinkHole sink = new SinkHole();
 	private final manhole man = new manhole();
 	private final entrance ent = new entrance();
-
+	//abandoned stuff
+	private final AbandonedEntrance aent = new AbandonedEntrance ();
+	private final bridge bridge = new bridge();
+	private final CaveIn cavein = new CaveIn();
+	private final Grave grave = new Grave();
+	private final spiderNest nest = new spiderNest();
+	private final AbandonedTunnel atun = new AbandonedTunnel();
+	
 	public void com1(Block set, Material m, BlockFace bf){
 
 		BlockFace bf1 = BlockFace.NORTH;
@@ -340,7 +347,54 @@ public class SewerGenerator {
 		
 		Block pit0 = n2.getRelative(BlockFace.NORTH, t7+8);
 		Block pit = pit0.getRelative(BlockFace.UP, 7);
-		com1(pit, m, bf);
+		com1(pit, m, bf);		
+	}
+	
+	public void apreview(Block set, Material m, BlockFace bf){
+
+		BlockFace bf1 = BlockFace.NORTH;
+		BlockFace bf2 = BlockFace.SOUTH;
+		BlockFace bf3 = BlockFace.EAST;
+		BlockFace bf4 = BlockFace.WEST;
 		
-	}	
+		Block setter0 = set.getRelative(BlockFace.EAST, 1);
+		int man1 = man.man2(setter0, m, bf2);
+		
+		Block setter000 = set.getRelative(BlockFace.DOWN, man1);
+		Block setter00 = setter000.getRelative(BlockFace.SOUTH, 4);
+		Block setter = setter00.getRelative(BlockFace.DOWN, 3);
+		
+		Block setter1 = setter.getRelative(BlockFace.NORTH, 6);
+		Block setter2 = setter1.getRelative(BlockFace.WEST, 3);
+		Block setter3 = setter2.getRelative(BlockFace.UP, 1);
+		@SuppressWarnings("unused")
+		int entr4 = ent.starter(setter3, m, bf1);
+		
+//		aent.entrance1(setter, m, bf1);
+		
+		int t1 = aent.entrance1(setter, m, bf2);
+		Block s1 = setter.getRelative(bf2, t1-2);
+		
+		int t2 = nest.nest1(s1, m, bf2);
+		Block s2 = s1.getRelative(bf2, t2-2);
+		
+		int grave1 = grave.grave(s2, m, bf2);
+		
+		Block s3 = s1.getRelative(bf4, 2);
+		int t3 = atun.ewtStraight(s3, m, bf4);
+		Block s4 = s1.getRelative(bf4, t3);
+		
+		int t4 = atun.ewtStraight(s4, m, bf4);
+		Block s5 = s4.getRelative(bf4, t4-2);
+		
+		Block s6 = s5.getRelative(bf3, 5);
+		Block s7 = s6.getRelative(bf2, 2);
+		int t5 = bridge.nsbridge(s7, m, bf2);
+		Block s8 = s7.getRelative(bf2, t5-2);
+		
+		Block s9 = s5.getRelative(bf3, 5);
+		Block s10 = s9.getRelative(bf1, 2);
+		int t6 = cavein.cavein1(s10, m, bf1);
+		Block s11 = s8.getRelative(bf2, t6-2);
+	}
 }	

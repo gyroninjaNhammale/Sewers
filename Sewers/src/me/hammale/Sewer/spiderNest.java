@@ -18,7 +18,7 @@ public class spiderNest {
 
 	private final AbandonedTunnel tun = new AbandonedTunnel();
 	
-	public void nest1(Block set, Material m, BlockFace bf){
+	public int nest1(Block set, Material m, BlockFace bf){
 		
 		BlockFace bf1 = BlockFace.NORTH;
 		BlockFace bf2 = BlockFace.SOUTH;
@@ -424,5 +424,6 @@ public class spiderNest {
 			}
 			i++;
 		}
+		return tun1;
 	}
 }

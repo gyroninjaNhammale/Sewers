@@ -8,10 +8,13 @@ import org.bukkit.block.Sign;
 
 public class AbandonedEntrance {
 
-Random gen = new Random();
+	Random gen = new Random();
+	private final AbandonedTunnel atun = new AbandonedTunnel();
 
-	public void entrance1(Block set, Material m, BlockFace bf){
+	public int entrance1(Block set, Material m, BlockFace bf){
 	
+		int t1 = atun.nstStraight(set, m, bf);
+		
 		Block otherset = set.getRelative(bf, 0);
 		Block set1 = otherset.getRelative(BlockFace.WEST, 1);
 		Block set2 = otherset.getRelative(BlockFace.EAST, 1);
@@ -41,7 +44,8 @@ Random gen = new Random();
 		sign.setLine(1, "Danger!!!");
 		sign.setLine(2, "Trespassers");
 		sign.setLine(3, "Will DIE!!!");
-	
+		
+		return t1;
 	}
 
 }

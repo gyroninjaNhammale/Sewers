@@ -19,7 +19,7 @@ public class CaveIn {
 
 	private final AbandonedTunnel tun = new AbandonedTunnel();
 	
-	public void cavein1(Block set, Material m, BlockFace bf){
+	public int cavein1(Block set, Material m, BlockFace bf){
 		
 		BlockFace bf1 = BlockFace.NORTH;
 		BlockFace bf2 = BlockFace.SOUTH;
@@ -218,6 +218,7 @@ public class CaveIn {
 		}
 		
 		//END CHEST CODE//
+		return tun1;
 	}
 }	
 	
