@@ -1,13 +1,17 @@
 package me.hammale.Sewer;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import java.io.*;
+import java.util.ArrayList;
 
 public class SewerCommandListener implements CommandExecutor {
     
@@ -16,6 +20,8 @@ public class SewerCommandListener implements CommandExecutor {
 	private final Grave grave = new Grave();
 	private final spiderNest nest = new spiderNest();
 	private final CaveIn cavein = new CaveIn();
+	public ArrayList<Integer> distance = new ArrayList<Integer>();
+	public Location end;
 	
 	@SuppressWarnings("unused")
 	private Sewer plugin;
@@ -36,8 +42,7 @@ public class SewerCommandListener implements CommandExecutor {
 			
 			if(args.length == 1){
 			String arg = args[0];
-			if(arg.equalsIgnoreCase("create")){
-			
+			if(arg.equalsIgnoreCase("create")){		
 			if (p == null) {
 				sender.sendMessage("[Sewers] This command can only be run by a player!");
 			} else if (p.isOp()) {
@@ -61,11 +66,64 @@ public class SewerCommandListener implements CommandExecutor {
 				sender.sendMessage("This command can opnly be run by an OP!");
 			}
 		}
+			
+			if(arg.equalsIgnoreCase("locate")){
+				if (p == null) {
+					sender.sendMessage("This command can only be run by a player!");
+				} else if (p.isOp()) {
+					p.sendMessage(ChatColor.GREEN + "Locating Sewer...");
+					
+					Location l = findSewer(p.getWorld(), p);
+					p.sendMessage(ChatColor.GREEN + "Closest sewer located @: " + ChatColor.BLUE + "X:" + l.getX()+ ChatColor.GREEN + "," + ChatColor.YELLOW + " Y:"+ l.getY()+ ChatColor.GREEN + "," + ChatColor.RED + " Z:" + l.getZ());
+											
+				return true;
+				}
+				else {
+					sender.sendMessage("This command can opnly be run by an OP!");
+				}
+			}
+			
 	}
 }
 		return false;
 }		
-	
+	public Location findSewer(World w, Player p){
+		
+		try{
+			  // Open the file that is the first 
+			  // command line parameter
+			  FileInputStream fstream = new FileInputStream("plugins/Sewers/sewers.txt");
+			  // Get the object of DataInputStream
+			  DataInputStream in = new DataInputStream(fstream);
+			  BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			  String strLine;
+			  //Read File Line By Line
+			  int far;
+			  while ((strLine = br.readLine()) != null){
+			  // Print the content on the console
+			  String delims = ",";
+			  String[] cords = strLine.split(delims);
+
+			  int x = Integer.parseInt(cords[0]);
+			  int y = Integer.parseInt(cords[1]);
+			  int z = Integer.parseInt(cords[2]);
+			  
+				  Location l = w.getBlockAt(x, y, z).getLocation();
+				  double dis = p.getEyeLocation().distance(l);
+				  far = (int)dis;
+				  
+				  if(dis > far){
+					  end = l;
+				  }
+			  }
+			  in.close();
+			  return end;
+			    }catch (Exception e){//Catch exception if any
+			  System.err.println("Error: " + e.getMessage());
+			  }
+		return null;
+		
+	}
 }
 
 
