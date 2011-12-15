@@ -10,6 +10,13 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.getspout.spoutapi.gui.GenericOverlayScreen;
+import org.getspout.spoutapi.gui.GenericPopup;
+import org.getspout.spoutapi.gui.GenericScreen;
+import org.getspout.spoutapi.gui.GenericTexture;
+import org.getspout.spoutapi.gui.Screen;
+import org.getspout.spoutapi.gui.WidgetAnchor;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -121,9 +128,21 @@ public class SewerCommandListener implements CommandExecutor {
 			    }catch (Exception e){//Catch exception if any
 			  System.err.println("Error: " + e.getMessage());
 			  }
-		return null;
-		
+		return null;		
 	}
+	
+	public void DisplayArrows(){
+
+
+		GenericTexture texture = new GenericTexture();
+		texture.setUrl("http://www.freeclipartnow.com/d/40228-1/arrow-blue-rounded-right.jpg");
+		texture.setWidth(64).setHeight(64);
+		texture.setAnchor(WidgetAnchor.CENTER_LEFT);
+		GenericOverlayScreen popup = new GenericOverlayScreen(0, GAME_SCREEN);
+		popup.attachWidget(plugin, texture);
+		
+		
+		}	
 }
 
 
