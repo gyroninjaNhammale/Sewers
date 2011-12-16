@@ -10,15 +10,25 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.getspout.spoutapi.gui.GenericContainer;
 import org.getspout.spoutapi.gui.GenericOverlayScreen;
 import org.getspout.spoutapi.gui.GenericPopup;
 import org.getspout.spoutapi.gui.GenericScreen;
 import org.getspout.spoutapi.gui.GenericTexture;
+import org.getspout.spoutapi.gui.InGameHUD;
+import org.getspout.spoutapi.gui.InGameScreen;
 import org.getspout.spoutapi.gui.Screen;
+import org.getspout.spoutapi.gui.ScreenType;
 import org.getspout.spoutapi.gui.WidgetAnchor;
+import org.getspout.spoutapi.player.SpoutPlayer;
 
+import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 public class SewerCommandListener implements CommandExecutor {
     
@@ -82,7 +92,9 @@ public class SewerCommandListener implements CommandExecutor {
 					
 					Location l = findSewer(p.getWorld(), p);
 					p.sendMessage(ChatColor.GREEN + "Closest sewer located @: " + ChatColor.BLUE + "X:" + l.getX()+ ChatColor.GREEN + "," + ChatColor.YELLOW + " Y:"+ l.getY()+ ChatColor.GREEN + "," + ChatColor.RED + " Z:" + l.getZ());
-											
+					
+					DisplayArrows(p);
+					
 				return true;
 				}
 				else {
@@ -131,16 +143,54 @@ public class SewerCommandListener implements CommandExecutor {
 		return null;		
 	}
 	
-	public void DisplayArrows(){
+	public void DisplayArrows(Player p){
 
 
-		GenericTexture texture = new GenericTexture();
-		texture.setUrl("http://www.freeclipartnow.com/d/40228-1/arrow-blue-rounded-right.jpg");
-		texture.setWidth(64).setHeight(64);
-		texture.setAnchor(WidgetAnchor.CENTER_LEFT);
-		GenericOverlayScreen popup = new GenericOverlayScreen(0, GAME_SCREEN);
-		popup.attachWidget(plugin, texture);
+		//GenericTexture texture = new GenericTexture();		
+		//texture.setUrl("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
+
+		SpoutPlayer player = (SpoutPlayer) p;
+		//Screen screen = player.getMainScreen();
 		
+//		GenericContainer box = new GenericContainer();
+//		box.setWidth(48).setHeight(48);
+//		box.setAnchor(WidgetAnchor.CENTER_CENTER);
+//		
+//		texture.setVisible(true);
+//		
+//		GenericPopup popup = new GenericPopup();
+//		box.addChild(texture);
+//		popup.attachWidget(plugin, box);
+		
+		InGameHUD hud = player.getMainScreen();
+        GenericContainer generalBox = new GenericContainer();
+        GenericTexture images = new GenericTexture();
+
+        images.setUrl("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
+        URL urlimage = null;
+        try {
+          urlimage = new URL("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
+        }
+        catch (MalformedURLException e1) {
+          e1.printStackTrace();
+        }
+        try
+        {
+          BufferedImage image = ImageIO.read(urlimage);
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
+
+        generalBox.setWidth(48).setHeight(48);
+
+        generalBox.setX(48).setY(48);
+        images.setWidth(48).setHeight(48);
+        images.setVisible(true);
+        generalBox.addChild(images);
+        hud.attachWidget(plugin, generalBox);
+        player.getMainScreen().attachWidget(hud);
 		
 		}	
 }
