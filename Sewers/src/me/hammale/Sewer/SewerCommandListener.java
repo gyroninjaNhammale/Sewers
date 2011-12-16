@@ -143,6 +143,7 @@ public class SewerCommandListener implements CommandExecutor {
 		return null;		
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void DisplayArrows(Player p){
 
 
@@ -165,22 +166,14 @@ public class SewerCommandListener implements CommandExecutor {
 		InGameHUD hud = player.getMainScreen();
         GenericContainer generalBox = new GenericContainer();
         GenericTexture images = new GenericTexture();
-
+        generalBox.setAnchor(WidgetAnchor.CENTER_LEFT);
+        
         images.setUrl("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
-        URL urlimage = null;
         try {
-          urlimage = new URL("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
+          URL urlimage = new URL("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
         }
         catch (MalformedURLException e1) {
           e1.printStackTrace();
-        }
-        try
-        {
-          BufferedImage image = ImageIO.read(urlimage);
-        }
-        catch (IOException e)
-        {
-          e.printStackTrace();
         }
 
         generalBox.setWidth(48).setHeight(48);
