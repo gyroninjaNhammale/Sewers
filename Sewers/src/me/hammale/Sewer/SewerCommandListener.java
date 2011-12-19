@@ -11,36 +11,24 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.getspout.spoutapi.gui.GenericContainer;
-import org.getspout.spoutapi.gui.GenericOverlayScreen;
 import org.getspout.spoutapi.gui.GenericPopup;
-import org.getspout.spoutapi.gui.GenericScreen;
 import org.getspout.spoutapi.gui.GenericTexture;
 import org.getspout.spoutapi.gui.InGameHUD;
-import org.getspout.spoutapi.gui.InGameScreen;
-import org.getspout.spoutapi.gui.Screen;
-import org.getspout.spoutapi.gui.ScreenType;
+import org.getspout.spoutapi.gui.PopupScreen;
 import org.getspout.spoutapi.gui.WidgetAnchor;
 import org.getspout.spoutapi.player.SpoutPlayer;
-
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-
 public class SewerCommandListener implements CommandExecutor {
     
 	private final SewerGenerator sewergen = new SewerGenerator();
-	private final bridge bridge = new bridge();
-	private final Grave grave = new Grave();
-	private final spiderNest nest = new spiderNest();
-	private final CaveIn cavein = new CaveIn();
 	public ArrayList<Integer> distance = new ArrayList<Integer>();
 	public Location end;
+	public boolean nav = false;
 	
-	@SuppressWarnings("unused")
 	private Sewer plugin;
  
 	public SewerCommandListener(Sewer plugin) {
@@ -91,9 +79,25 @@ public class SewerCommandListener implements CommandExecutor {
 					p.sendMessage(ChatColor.GREEN + "Locating Sewer...");
 					
 					Location l = findSewer(p.getWorld(), p);
-					p.sendMessage(ChatColor.GREEN + "Closest sewer located @: " + ChatColor.BLUE + "X:" + l.getX()+ ChatColor.GREEN + "," + ChatColor.YELLOW + " Y:"+ l.getY()+ ChatColor.GREEN + "," + ChatColor.RED + " Z:" + l.getZ());
+					p.sendMessage(ChatColor.GREEN + "Closest sewer located @: " + ChatColor.BLUE + "X:" + l.getX()+ ChatColor.GREEN + "," + ChatColor.YELLOW + " Y:"+ l.getY()+ ChatColor.GREEN + "," + ChatColor.RED + " Z:" + l.getZ());				
 					
-					DisplayArrows(p);
+				return true;
+				}
+				else {
+					sender.sendMessage("This command can opnly be run by an OP!");
+				}
+			}
+			
+			if(arg.equalsIgnoreCase("nav")){
+				if (p == null) {
+					sender.sendMessage("This command can only be run by a player!");
+				} else if (p.isOp()) {
+					if(nav == true){
+						sender.sendMessage(ChatColor.RED + "Stopping Sewer navigation...");
+						StopNav(p);
+					}else{
+						DisplayArrows(p);
+					}
 					
 				return true;
 				}
@@ -106,6 +110,7 @@ public class SewerCommandListener implements CommandExecutor {
 }
 		return false;
 }		
+
 	public Location findSewer(World w, Player p){
 		
 		try{
@@ -143,7 +148,6 @@ public class SewerCommandListener implements CommandExecutor {
 		return null;		
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void DisplayArrows(Player p){
 
 
@@ -166,10 +170,13 @@ public class SewerCommandListener implements CommandExecutor {
 		InGameHUD hud = player.getMainScreen();
         GenericContainer generalBox = new GenericContainer();
         GenericTexture images = new GenericTexture();
-        generalBox.setAnchor(WidgetAnchor.CENTER_LEFT);
+        PopupScreen popup = new GenericPopup();
+        
+        generalBox.setAnchor(WidgetAnchor.CENTER_RIGHT);
         
         images.setUrl("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
         try {
+          @SuppressWarnings("unused")
           URL urlimage = new URL("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
         }
         catch (MalformedURLException e1) {
@@ -177,15 +184,21 @@ public class SewerCommandListener implements CommandExecutor {
         }
 
         generalBox.setWidth(48).setHeight(48);
-
-        generalBox.setX(48).setY(48);
         images.setWidth(48).setHeight(48);
         images.setVisible(true);
         generalBox.addChild(images);
+        //popup.attachWidget(plugin, generalBox);
         hud.attachWidget(plugin, generalBox);
-        player.getMainScreen().attachWidget(hud);
+        player.getMainScreen().setScreen(hud);
 		
-		}	
+		}
+	
+	private void StopNav(Player p) {
+
+		SpoutPlayer player = (SpoutPlayer) p;
+		player.getMainScreen().closePopup();
+		nav = false;
+		
+	}
+	
 }
-
-
