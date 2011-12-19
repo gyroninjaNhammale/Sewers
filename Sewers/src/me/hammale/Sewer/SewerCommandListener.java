@@ -79,8 +79,11 @@ public class SewerCommandListener implements CommandExecutor {
 					p.sendMessage(ChatColor.GREEN + "Locating Sewer...");
 					
 					Location l = findSewer(p.getWorld(), p);
-					p.sendMessage(ChatColor.GREEN + "Closest sewer located @: " + ChatColor.BLUE + "X:" + l.getX()+ ChatColor.GREEN + "," + ChatColor.YELLOW + " Y:"+ l.getY()+ ChatColor.GREEN + "," + ChatColor.RED + " Z:" + l.getZ());				
-					
+					if(l != null){
+					p.sendMessage(ChatColor.GREEN + "Closest sewer located @: " + ChatColor.BLUE + l.getX()+ ChatColor.GREEN + ", " + ChatColor.YELLOW + l.getY()+ ChatColor.GREEN + ", " + ChatColor.RED + l.getZ());				
+					}else{
+						p.sendMessage(ChatColor.RED + "No Sewer's found!");
+					}
 				return true;
 				}
 				else {
@@ -97,6 +100,7 @@ public class SewerCommandListener implements CommandExecutor {
 						StopNav(p);
 					}else{
 						DisplayArrows(p);
+						nav = false;
 					}
 					
 				return true;
@@ -172,7 +176,7 @@ public class SewerCommandListener implements CommandExecutor {
         GenericTexture images = new GenericTexture();
         PopupScreen popup = new GenericPopup();
         
-        generalBox.setAnchor(WidgetAnchor.CENTER_RIGHT);
+        generalBox.setAnchor(WidgetAnchor.CENTER_LEFT);
         
         images.setUrl("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
         try {
@@ -196,7 +200,7 @@ public class SewerCommandListener implements CommandExecutor {
 	private void StopNav(Player p) {
 
 		SpoutPlayer player = (SpoutPlayer) p;
-		player.getMainScreen().closePopup();
+		player.getMainScreen().setScreen(null);
 		nav = false;
 		
 	}

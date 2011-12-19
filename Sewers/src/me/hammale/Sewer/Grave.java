@@ -687,7 +687,7 @@ public class Grave {
 
 			if (x == 4 || x == 7  || x == 10 || x == 13 || x ==16) {
 
-			System.out.println("starting signs...");
+			
 			set13.setTypeIdAndData(98, moss, true);
 			set56.setType(Material.AIR);
 			set57.setTypeIdAndData(63, sdir, true);
