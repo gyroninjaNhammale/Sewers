@@ -23,6 +23,7 @@ public class Sewer extends JavaPlugin {
 	private SewerBlockListener blockListener;
 	//private SewerPlayerListener playerListener;
 	SewerPlayerListener playerListener = new SewerPlayerListener(this);
+	SewerLocate locate = new SewerLocate(this);
 	
 	public HashSet<String> active = new HashSet<String>();
 	public double initial = 0;

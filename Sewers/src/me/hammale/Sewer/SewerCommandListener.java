@@ -25,18 +25,15 @@ import java.util.ArrayList;
 public class SewerCommandListener implements CommandExecutor {
     
 	private final SewerGenerator sewergen = new SewerGenerator();
-	public ArrayList<Integer> distance = new ArrayList<Integer>();
-	public Location end;
-	public boolean nav = false;
-	public InGameHUD hud;
-	public GenericTexture images;
+	
+	private SewerLocate loc;
 	
 	private Sewer plugin;
  
 	public SewerCommandListener(Sewer plugin) {
 		this.plugin = plugin;
 	}
-
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
@@ -80,7 +77,7 @@ public class SewerCommandListener implements CommandExecutor {
 				} else if (p.isOp()) {
 					p.sendMessage(ChatColor.GREEN + "Locating Sewer...");
 					
-					Location l = findSewer(p.getWorld(), p);
+					Location l = loc.findSewer(p.getWorld(), p);
 					if(l != null){
 					p.sendMessage(ChatColor.GREEN + "Closest sewer located @: " + ChatColor.BLUE + l.getX()+ ChatColor.GREEN + ", " + ChatColor.YELLOW + l.getY()+ ChatColor.GREEN + ", " + ChatColor.RED + l.getZ());				
 					}else{
@@ -99,9 +96,9 @@ public class SewerCommandListener implements CommandExecutor {
 				} else if (p.isOp()) {
 					SpoutPlayer player = (SpoutPlayer) p;
 					if(player.isSpoutCraftEnabled()){
-					if(nav == true){
+					if(loc.nav == true){
 						sender.sendMessage(ChatColor.RED + "Stopping Sewer navigation...");
-						StopNav(p);
+						loc.StopNav(p);
 					}else{
 						if(!(plugin.active.isEmpty())){
 							
@@ -110,7 +107,7 @@ public class SewerCommandListener implements CommandExecutor {
 						}
 						sender.sendMessage(ChatColor.GREEN + "Starting Sewer navigation...");
 						sender.sendMessage(ChatColor.GREEN + "To stop navigation type '/sewer nav'");
-						DisplayArrows(p);					
+						loc.DisplayArrows(p);					
 					}					
 				return true;
 					}else{
@@ -127,92 +124,5 @@ public class SewerCommandListener implements CommandExecutor {
 		return false;
 }		
 
-	public Location findSewer(World w, Player p){
-		
-		try{
-			  // Open the file that is the first 
-			  // command line parameter
-			  FileInputStream fstream = new FileInputStream("plugins/Sewers/sewers.txt");
-			  // Get the object of DataInputStream
-			  DataInputStream in = new DataInputStream(fstream);
-			  BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			  String strLine;
-			  //Read File Line By Line
-			  int far;
-			  while ((strLine = br.readLine()) != null){
-			  // Print the content on the console
-			  String delims = ",";
-			  String[] cords = strLine.split(delims);
 
-			  int x = Integer.parseInt(cords[0]);
-			  int y = Integer.parseInt(cords[1]);
-			  int z = Integer.parseInt(cords[2]);
-			  
-				  Location l = w.getBlockAt(x, y, z).getLocation();
-				  double dis = p.getEyeLocation().distance(l);
-				  far = (int)dis;
-				  
-				  if(dis > far){
-					  end = l;
-				  }
-			  }
-			  in.close();
-			  return end;
-			    }catch (Exception e){//Catch exception if any
-			  System.err.println("Error: " + e.getMessage());
-			  }
-		return null;		
-	}
-	
-	public void DisplayArrows(Player p){
-		
-		plugin.initial = p.getEyeLocation().distance(findSewer(p.getWorld(), p));
-		
-		plugin.active.add(p.getName());
-		
-		SpoutPlayer player = (SpoutPlayer) p;
-		
-		hud = player.getMainScreen();
-        GenericContainer generalBox = new GenericContainer();
-        images = new GenericTexture();
-        PopupScreen popup = new GenericPopup();
-        
-        generalBox.setAnchor(WidgetAnchor.TOP_CENTER);
-        
-        images.setUrl("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png");
-        try {
-          @SuppressWarnings("unused")
-          URL urlimage = new URL("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png");
-        }
-        catch (MalformedURLException e1) {
-          e1.printStackTrace();
-        }
-
-        generalBox.setWidth(48).setHeight(48);
-        images.setWidth(48).setHeight(48);
-        images.setVisible(true);
-        generalBox.addChild(images);
-        
-        hud.attachWidget(plugin, generalBox);
-        player.getMainScreen().setScreen(hud);
-		
-        nav = true;
-		}
-	
-	private void StopNav(Player p) {
-
-		plugin.active.remove(p.getName());
-		SpoutPlayer player = (SpoutPlayer) p;
-		player.getMainScreen().removeWidgets(plugin);
-		nav = false;
-		
-	}
-	
-	public void updateScreen(Player p){
-		
-		SpoutPlayer player = (SpoutPlayer) p;
-        images.setUrl(plugin.direction);
-		player.getMainScreen().updateWidget(hud);
-		
-	}
 }

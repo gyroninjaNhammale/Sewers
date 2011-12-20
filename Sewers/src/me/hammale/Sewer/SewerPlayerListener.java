@@ -9,18 +9,18 @@ public class SewerPlayerListener extends PlayerListener {
 	
 	private Sewer plugin;
 	 
+	private SewerLocate loc;
+	
 	public SewerPlayerListener(Sewer plugin) {
 		this.plugin = plugin;
 	}
-	
-	private final SewerCommandListener cmd = new SewerCommandListener(plugin);
 	
 	public void onPlayerMove(PlayerMoveEvent e) {
 		if(!(plugin.active.isEmpty())){
 		if(plugin.active.contains(e.getPlayer().getName())){
 			Player p = e.getPlayer();
 			String dir = getDirection(e.getPlayer());
-			if(p.getEyeLocation().distance(cmd.findSewer(p.getWorld(), p)) < plugin.initial){
+			if(p.getEyeLocation().distance(loc.findSewer(p.getWorld(), p)) < plugin.initial){
 				plugin.direction = getDirection(p);
 			}else{
 				if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png")){
@@ -41,7 +41,7 @@ public class SewerPlayerListener extends PlayerListener {
 					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/sw.png";
 				}
 			}
-			cmd.updateScreen(p);
+			loc.updateScreen(p);
 		}
 		}
 	}
