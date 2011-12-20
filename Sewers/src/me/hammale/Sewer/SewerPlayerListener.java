@@ -7,39 +7,43 @@ import org.bukkit.util.Vector;
 
 public class SewerPlayerListener extends PlayerListener {
 	
-	//private final Sewer plugin = new Sewer();
+	private Sewer plugin;
+	 
+	public SewerPlayerListener(Sewer plugin) {
+		this.plugin = plugin;
+	}
 	
-	//private final SewerCommandListener cmd = new SewerCommandListener(plugin);
+	private final SewerCommandListener cmd = new SewerCommandListener(plugin);
 	
 	public void onPlayerMove(PlayerMoveEvent e) {
-//		if(!(plugin.active.isEmpty())){
-//		if(plugin.active.contains(e.getPlayer().getName())){
-//			Player p = e.getPlayer();
-//			String dir = getDirection(e.getPlayer());
-//			if(p.getEyeLocation().distance(cmd.findSewer(p.getWorld(), p)) < plugin.initial){
-//				plugin.direction = getDirection(p);
-//			}else{
-//				if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png")){
-//					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png";
-//				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png")){
-//					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png";
-//				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/n.png")){
-//					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/s.png";
-//				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/s.png")){
-//					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/n.png";
-//				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/nw.png")){
-//					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/se.png";
-//				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/se.png")){
-//					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/nw.png";
-//				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/sw.png")){
-//					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/ne.png";
-//				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/ne.png")){
-//					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/sw.png";
-//				}
-//			}
-//			cmd.updateScreen(p);
-//		}
-//		}
+		if(!(plugin.active.isEmpty())){
+		if(plugin.active.contains(e.getPlayer().getName())){
+			Player p = e.getPlayer();
+			String dir = getDirection(e.getPlayer());
+			if(p.getEyeLocation().distance(cmd.findSewer(p.getWorld(), p)) < plugin.initial){
+				plugin.direction = getDirection(p);
+			}else{
+				if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png")){
+					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png";
+				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png")){
+					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png";
+				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/n.png")){
+					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/s.png";
+				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/s.png")){
+					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/n.png";
+				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/nw.png")){
+					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/se.png";
+				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/se.png")){
+					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/nw.png";
+				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/sw.png")){
+					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/ne.png";
+				}else if(getDirection(p).equals("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/ne.png")){
+					plugin.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/sw.png";
+				}
+			}
+			cmd.updateScreen(p);
+		}
+		}
 	}
 	
 	   public String getDirection(Player playerSelf){

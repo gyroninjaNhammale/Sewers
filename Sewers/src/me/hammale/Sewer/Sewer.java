@@ -21,7 +21,9 @@ public class Sewer extends JavaPlugin {
 	private SewerCommandListener cmdExecutor;
 	private SewerChunkListener chunkListener;
 	private SewerBlockListener blockListener;
-	private SewerPlayerListener playerListener;
+	//private SewerPlayerListener playerListener;
+	SewerPlayerListener playerListener = new SewerPlayerListener(this);
+	
 	public HashSet<String> active = new HashSet<String>();
 	public double initial = 0;
 	public String direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png";
