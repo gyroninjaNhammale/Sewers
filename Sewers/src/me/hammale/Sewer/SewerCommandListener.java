@@ -28,6 +28,8 @@ public class SewerCommandListener implements CommandExecutor {
 	public ArrayList<Integer> distance = new ArrayList<Integer>();
 	public Location end;
 	public boolean nav = false;
+	public InGameHUD hud;
+	public GenericTexture images;
 	
 	private Sewer plugin;
  
@@ -101,7 +103,13 @@ public class SewerCommandListener implements CommandExecutor {
 						sender.sendMessage(ChatColor.RED + "Stopping Sewer navigation...");
 						StopNav(p);
 					}else{
+						if(!(plugin.active.isEmpty())){
+							
+							sender.sendMessage(ChatColor.RED + "OH NOES! It appears that " + plugin.active + " is already navigating! One at a time please!");
+							
+						}
 						sender.sendMessage(ChatColor.GREEN + "Starting Sewer navigation...");
+						sender.sendMessage(ChatColor.GREEN + "To stop navigation type '/sewer nav'");
 						DisplayArrows(p);					
 					}					
 				return true;
@@ -158,28 +166,30 @@ public class SewerCommandListener implements CommandExecutor {
 	
 	public void DisplayArrows(Player p){
 		
-		System.out.println("displaying....");
+		plugin.initial = p.getEyeLocation().distance(findSewer(p.getWorld(), p));
+		
+		plugin.active.add(p.getName());
 		
 		SpoutPlayer player = (SpoutPlayer) p;
 		
-		InGameHUD hud = player.getMainScreen();
+		hud = player.getMainScreen();
         GenericContainer generalBox = new GenericContainer();
-        GenericTexture images = new GenericTexture();
+        images = new GenericTexture();
         PopupScreen popup = new GenericPopup();
         
         generalBox.setAnchor(WidgetAnchor.TOP_CENTER);
         
-        images.setUrl("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/east.png");
+        images.setUrl("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png");
         try {
           @SuppressWarnings("unused")
-          URL urlimage = new URL("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/east.png");
+          URL urlimage = new URL("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png");
         }
         catch (MalformedURLException e1) {
           e1.printStackTrace();
         }
 
-        generalBox.setWidth(47).setHeight(48);
-        images.setWidth(47).setHeight(48);
+        generalBox.setWidth(48).setHeight(48);
+        images.setWidth(48).setHeight(48);
         images.setVisible(true);
         generalBox.addChild(images);
         
@@ -191,10 +201,18 @@ public class SewerCommandListener implements CommandExecutor {
 	
 	private void StopNav(Player p) {
 
+		plugin.active.remove(p.getName());
 		SpoutPlayer player = (SpoutPlayer) p;
 		player.getMainScreen().removeWidgets(plugin);
 		nav = false;
 		
 	}
 	
+	public void updateScreen(Player p){
+		
+		SpoutPlayer player = (SpoutPlayer) p;
+        images.setUrl(plugin.direction);
+		player.getMainScreen().updateWidget(hud);
+		
+	}
 }

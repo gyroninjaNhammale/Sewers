@@ -1,5 +1,7 @@
 package me.hammale.Sewer;
 
+import java.util.HashSet;
+
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.Server;
 import org.bukkit.World;
@@ -19,6 +21,10 @@ public class Sewer extends JavaPlugin {
 	private SewerCommandListener cmdExecutor;
 	private SewerChunkListener chunkListener;
 	private SewerBlockListener blockListener;
+	private SewerPlayerListener playerListener;
+	public HashSet<String> active = new HashSet<String>();
+	public double initial = 0;
+	public String direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png";
 	
 	public FileConfiguration config;
 	
@@ -44,8 +50,9 @@ public class Sewer extends JavaPlugin {
     }
 	private void registerEvents()
     {
-		getServer().getPluginManager().registerEvent(Event.Type.CHUNK_POPULATED, this.chunkListener, Event.Priority.Normal, this);
+		getServer().getPluginManager().registerEvent(Event.Type.CHUNK_POPULATED, chunkListener, Event.Priority.Normal, this);
 		getServer().getPluginManager().registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Normal, this);
+		getServer().getPluginManager().registerEvent(Event.Type.PLAYER_MOVE, playerListener, Event.Priority.Normal, this);
     }
 	
 	public void loadConfiguration(){
