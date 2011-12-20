@@ -1,5 +1,5 @@
 name: Sewers
-version: 0.20
+version: 0.3.0
 description: Sewers in Minecraft!
 load: STARTUP
 authors: [hammale, Gyroninja]
@@ -7,4 +7,4 @@ main: me.hammale.Sewer.Sewer
 commands:
     sewer:
         description: "Use this command to generate a sewer."
-        usage: "Sewers 0.2 Pre-release commands: /sewer create"
+        usage: "Sewers 0.3.0 commands: /sewer create, /sewer locate"

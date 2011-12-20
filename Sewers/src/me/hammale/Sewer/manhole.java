@@ -1,10 +1,13 @@
 package me.hammale.Sewer;
 
 import java.util.Random;
+import java.util.Scanner;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import java.io.*;
 
 public class manhole {
 
@@ -95,6 +98,7 @@ public class manhole {
 					
 					if (i == 2){
 					clr1.setType(Material.IRON_FENCE);
+					addLocation(clr1);
 					i = 1;
 					}else{
 						byte flags = ( byte )3;
@@ -212,6 +216,7 @@ public class manhole {
 										
 					if (d == 1){
 					clr1.setType(Material.IRON_FENCE);
+					addLocation(clr1);
 					}else{
 						byte flags = ( byte )3;
 						clr1.setType(Material.LADDER);
@@ -244,5 +249,38 @@ public class manhole {
 			}
 		return a;
 	  }
+	
+	public void addLocation(Block b){
+		try{
+		File file = new File("plugins/Sewers/sewers.txt");  
+		  
+        Scanner scan;  
+        String str = null;  
+  
+        if (file.exists()) {  
+  
+            scan = new Scanner(file);  
+            str = scan.nextLine();  
+            while (scan.hasNextLine()) {  
+                str = str.concat("\n" + scan.nextLine());  
+            }  
+        }  
+     
+		  int x = (int)b.getLocation().getX();
+		  int y = (int)b.getLocation().getY();
+		  int z = (int)b.getLocation().getZ();
+		  
+		  str = (x + "," + y + "," + z);
+        
+  
+        PrintWriter out = new PrintWriter(new FileWriter(file, true));  
+  
+        out.println(str);  
+        out.close(); 
+		}catch (Exception e){//Catch exception if any
+		  System.err.println("Error: " + e.getMessage());
+		}
+		
+	}
 	
 }
