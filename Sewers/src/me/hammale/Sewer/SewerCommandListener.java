@@ -169,17 +169,17 @@ public class SewerCommandListener implements CommandExecutor {
         
         generalBox.setAnchor(WidgetAnchor.TOP_CENTER);
         
-        images.setUrl("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
+        images.setUrl("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/east.png");
         try {
           @SuppressWarnings("unused")
-          URL urlimage = new URL("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
+          URL urlimage = new URL("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/east.png");
         }
         catch (MalformedURLException e1) {
           e1.printStackTrace();
         }
 
-        generalBox.setWidth(48).setHeight(48);
-        images.setWidth(48).setHeight(48);
+        generalBox.setWidth(47).setHeight(48);
+        images.setWidth(47).setHeight(48);
         images.setVisible(true);
         generalBox.addChild(images);
         
