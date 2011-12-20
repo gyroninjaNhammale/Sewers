@@ -68,7 +68,7 @@ public class SewerCommandListener implements CommandExecutor {
 			return true;
 			}
 			else {
-				sender.sendMessage("This command can opnly be run by an OP!");
+				sender.sendMessage("This command can only be run by an OP!");
 			}
 		}
 			
@@ -87,7 +87,7 @@ public class SewerCommandListener implements CommandExecutor {
 				return true;
 				}
 				else {
-					sender.sendMessage("This command can opnly be run by an OP!");
+					sender.sendMessage("This command can only be run by an OP!");
 				}
 			}
 			
@@ -95,18 +95,22 @@ public class SewerCommandListener implements CommandExecutor {
 				if (p == null) {
 					sender.sendMessage("This command can only be run by a player!");
 				} else if (p.isOp()) {
+					SpoutPlayer player = (SpoutPlayer) p;
+					if(player.isSpoutCraftEnabled()){
 					if(nav == true){
 						sender.sendMessage(ChatColor.RED + "Stopping Sewer navigation...");
 						StopNav(p);
 					}else{
-						DisplayArrows(p);
-						nav = false;
-					}
-					
+						sender.sendMessage(ChatColor.GREEN + "Starting Sewer navigation...");
+						DisplayArrows(p);					
+					}					
 				return true;
+					}else{
+						sender.sendMessage(ChatColor.RED + "OH NOES! You aren't using SpoutCraft so navigation is impossiable!");
+					}
 				}
 				else {
-					sender.sendMessage("This command can opnly be run by an OP!");
+					sender.sendMessage("This command can only be run by an OP!");
 				}
 			}
 			
@@ -153,30 +157,17 @@ public class SewerCommandListener implements CommandExecutor {
 	}
 	
 	public void DisplayArrows(Player p){
-
-
-		//GenericTexture texture = new GenericTexture();		
-		//texture.setUrl("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
-
-		SpoutPlayer player = (SpoutPlayer) p;
-		//Screen screen = player.getMainScreen();
 		
-//		GenericContainer box = new GenericContainer();
-//		box.setWidth(48).setHeight(48);
-//		box.setAnchor(WidgetAnchor.CENTER_CENTER);
-//		
-//		texture.setVisible(true);
-//		
-//		GenericPopup popup = new GenericPopup();
-//		box.addChild(texture);
-//		popup.attachWidget(plugin, box);
+		System.out.println("displaying....");
+		
+		SpoutPlayer player = (SpoutPlayer) p;
 		
 		InGameHUD hud = player.getMainScreen();
         GenericContainer generalBox = new GenericContainer();
         GenericTexture images = new GenericTexture();
         PopupScreen popup = new GenericPopup();
         
-        generalBox.setAnchor(WidgetAnchor.CENTER_LEFT);
+        generalBox.setAnchor(WidgetAnchor.TOP_CENTER);
         
         images.setUrl("http://iconkits.com/images/vip/aerozone_arrow_small_preview.png");
         try {
@@ -191,16 +182,17 @@ public class SewerCommandListener implements CommandExecutor {
         images.setWidth(48).setHeight(48);
         images.setVisible(true);
         generalBox.addChild(images);
-        //popup.attachWidget(plugin, generalBox);
+        
         hud.attachWidget(plugin, generalBox);
         player.getMainScreen().setScreen(hud);
 		
+        nav = true;
 		}
 	
 	private void StopNav(Player p) {
 
 		SpoutPlayer player = (SpoutPlayer) p;
-		player.getMainScreen().setScreen(null);
+		player.getMainScreen().removeWidgets(plugin);
 		nav = false;
 		
 	}
