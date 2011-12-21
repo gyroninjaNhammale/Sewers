@@ -12,6 +12,7 @@ public class UltraGen {
 
 	private final Tunnel tun = new Tunnel();
 	private final hut hut = new hut();
+	private final pit pit = new pit();
 	private final SinkHole sink = new SinkHole();
 	private final manhole man = new manhole();
 	private final entrance ent = new entrance();
@@ -19,18 +20,21 @@ public class UltraGen {
 	private final AbandonedEntrance aent = new AbandonedEntrance();
 	private final AbandonedTunnel atun = new AbandonedTunnel();
 	private final bridge bridge = new bridge();
-//	private final Grave grave = new Grave();
-//	private final CaveIn cin = new CaveIn();
-//	private final spiderNest snest = new spiderNest();
+	private final Grave grave = new Grave();
+	private final CaveIn cin = new CaveIn();
+	private final spiderNest snest = new spiderNest();
+
+	BlockFace bf1 = BlockFace.NORTH;
+	BlockFace bf2 = BlockFace.SOUTH;
+	BlockFace bf3 = BlockFace.EAST;
+	BlockFace bf4 = BlockFace.WEST;
+	BlockFace bf5 = BlockFace.UP;
+	BlockFace bf6 = BlockFace.DOWN;
+
+	Block set10;
+	Block set11;
 
 	public void ugen (Block set, Material m, BlockFace bf, int rooms) {
-
-		BlockFace bf1 = BlockFace.NORTH;
-		BlockFace bf2 = BlockFace.SOUTH;
-		BlockFace bf3 = BlockFace.EAST;
-		BlockFace bf4 = BlockFace.WEST;
-		BlockFace bf5 = BlockFace.UP;
-		BlockFace bf6 = BlockFace.DOWN;
 
 		int dir = 1;
 		int olddir = 1;
@@ -61,9 +65,6 @@ public class UltraGen {
 		Block set8 = set7.getRelative(bf2, tun1 - 3);
 		Block set9 = set8.getRelative(bf6, 1);
 		Block pos = set9.getRelative(bf3, 3);
-
-		Block set10;
-		Block set11;
 
 		for (int roomcount = 2; roomcount <= rooms1; roomcount++) {
 
@@ -237,7 +238,7 @@ public class UltraGen {
 
 				if (roomcount == sewerend + 2) {
 
-					set10 = pos.getRelative(bf5, 1);
+					set10 = pos.getRelative(bf5, 2);
 					set11 = set10.getRelative(bf1, 1);
 
 					aent.entrance1(set11, m, bf2);
@@ -250,6 +251,24 @@ public class UltraGen {
 					set10 = pos.getRelative(bf1, 1);
 
 					int b1 = bridge.nsbridge(set10, m, bf1);
+
+					set11 = set10.getRelative(bf4, 2);
+
+					pos = set11.getRelative(bf1, b1 + 12);
+				}
+
+				if (roomcount >= sewerend + 4 && roomcount < rooms1) {
+
+					int atun2 = atun.ewtStraight(pos, m, bf4);
+
+					pos = pos.getRelative(bf4, atun2 - 3);
+
+					roomcount++;
+
+					if (roomcount % 2 == 0) {
+
+						addapart(pos, m, bf);
+					}
 				}
 			}
 		}
@@ -356,23 +375,30 @@ public class UltraGen {
 
 	}
 
-	void addapart(Block pos) {
+	void addapart(Block pos, Material m, BlockFace bf) {
 
 		int ran1 = gen.nextInt(3);
 
 		if (ran1 == 0) {
 
-			
+			set10 = pos.getRelative(bf1, 2);
+			set11 = set10.getRelative(bf5, 1);
+
+			grave.grave(set11, m, bf);
 		}
 
 		if (ran1 == 1) {
 
-			
+			set10 = pos.getRelative(bf1, 2);
+
+			cin.cavein1(set10, m, bf);
 		}
 
 		if (ran1 == 2) {
 
-			
+			set10 = pos.getRelative(bf1, 2);
+
+			snest.nest1(set10, m, bf);
 		}
 	}
 }
