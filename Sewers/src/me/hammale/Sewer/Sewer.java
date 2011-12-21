@@ -21,13 +21,9 @@ public class Sewer extends JavaPlugin {
 	private SewerCommandListener cmdExecutor;
 	private SewerChunkListener chunkListener;
 	private SewerBlockListener blockListener;
-	//private SewerPlayerListener playerListener;
-	SewerPlayerListener playerListener = new SewerPlayerListener(this);
-	SewerLocate locate = new SewerLocate(this);
-	
-	public HashSet<String> active = new HashSet<String>();
-	public double initial = 0;
-	public String direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png";
+	private SewerPlayerListener playerListener;
+	private SewerLocate sewerLocate;
+	//private SewerPlayerListener playerListener;	
 	
 	public FileConfiguration config;
 	
@@ -37,8 +33,10 @@ public class Sewer extends JavaPlugin {
 		loadConfiguration();
 		PluginDescriptionFile pdfFile = this.getDescription();
 		System.out.println("[Sewers] Version " + pdfFile.getVersion() + " Enabled!");
-	    cmdExecutor = new SewerCommandListener(this);
+	    cmdExecutor = new SewerCommandListener();
 	    chunkListener = new SewerChunkListener(this);
+	    sewerLocate = new SewerLocate(this);
+	    playerListener = new SewerPlayerListener();
 	    blockListener = new SewerBlockListener();
 		getCommand("sewer").setExecutor(cmdExecutor);
 		registerEvents();

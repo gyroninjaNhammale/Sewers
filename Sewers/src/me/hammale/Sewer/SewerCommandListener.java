@@ -26,14 +26,8 @@ public class SewerCommandListener implements CommandExecutor {
     
 	private final SewerGenerator sewergen = new SewerGenerator();
 	
-	private SewerLocate loc;
-	
-	private Sewer plugin;
- 
-	public SewerCommandListener(Sewer plugin) {
-		this.plugin = plugin;
-	}
-	
+	private final SewerLocate loc = new SewerLocate();
+		
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
@@ -100,9 +94,9 @@ public class SewerCommandListener implements CommandExecutor {
 						sender.sendMessage(ChatColor.RED + "Stopping Sewer navigation...");
 						loc.StopNav(p);
 					}else{
-						if(!(plugin.active.isEmpty())){
+						if(!(loc.active.isEmpty())){
 							
-							sender.sendMessage(ChatColor.RED + "OH NOES! It appears that " + plugin.active + " is already navigating! One at a time please!");
+							sender.sendMessage(ChatColor.RED + "OH NOES! It appears that " + loc.active + " is already navigating! One at a time please!");
 							
 						}
 						sender.sendMessage(ChatColor.GREEN + "Starting Sewer navigation...");

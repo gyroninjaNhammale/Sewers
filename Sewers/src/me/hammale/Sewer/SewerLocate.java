@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
 
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -27,9 +29,13 @@ public class SewerLocate {
 	public InGameHUD hud;
 	public GenericTexture images;
 	
-	private Sewer plugin;
- 
-	public SewerLocate(Sewer plugin) {
+	public HashSet<String> active = new HashSet<String>();
+	public double initial = 0;
+	public String direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png";
+	
+    public final Sewer plugin;
+    
+    public SewerLocate(Sewer plugin) {
 		this.plugin = plugin;
 	}
 	
@@ -72,9 +78,9 @@ public class SewerLocate {
 	
 	public void DisplayArrows(Player p){
 		
-		plugin.initial = p.getEyeLocation().distance(findSewer(p.getWorld(), p));
+		initial = p.getEyeLocation().distance(findSewer(p.getWorld(), p));
 		
-		plugin.active.add(p.getName());
+		active.add(p.getName());
 		
 		SpoutPlayer player = (SpoutPlayer) p;
 		
@@ -107,7 +113,7 @@ public class SewerLocate {
 	
 	public void StopNav(Player p) {
 
-		plugin.active.remove(p.getName());
+		active.remove(p.getName());
 		SpoutPlayer player = (SpoutPlayer) p;
 		player.getMainScreen().removeWidgets(plugin);
 		nav = false;
@@ -117,7 +123,7 @@ public class SewerLocate {
 	public void updateScreen(Player p){
 		
 		SpoutPlayer player = (SpoutPlayer) p;
-        images.setUrl(plugin.direction);
+        images.setUrl(direction);
 		player.getMainScreen().updateWidget(hud);
 		
 	}
