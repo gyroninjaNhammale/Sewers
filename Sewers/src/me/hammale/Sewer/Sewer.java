@@ -1,5 +1,7 @@
 package me.hammale.Sewer;
 
+import java.util.HashSet;
+
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.Server;
 import org.bukkit.World;
@@ -19,6 +21,9 @@ public class Sewer extends JavaPlugin {
 	private SewerCommandListener cmdExecutor;
 	private SewerChunkListener chunkListener;
 	private SewerBlockListener blockListener;
+	private SewerPlayerListener playerListener;
+	private SewerLocate sewerLocate;
+	//private SewerPlayerListener playerListener;	
 	
 	public FileConfiguration config;
 	
@@ -28,8 +33,10 @@ public class Sewer extends JavaPlugin {
 		loadConfiguration();
 		PluginDescriptionFile pdfFile = this.getDescription();
 		System.out.println("[Sewers] Version " + pdfFile.getVersion() + " Enabled!");
-	    cmdExecutor = new SewerCommandListener(this);
+	    cmdExecutor = new SewerCommandListener();
 	    chunkListener = new SewerChunkListener(this);
+	    sewerLocate = new SewerLocate(this);
+	    playerListener = new SewerPlayerListener();
 	    blockListener = new SewerBlockListener();
 		getCommand("sewer").setExecutor(cmdExecutor);
 		registerEvents();
@@ -44,8 +51,9 @@ public class Sewer extends JavaPlugin {
     }
 	private void registerEvents()
     {
-		getServer().getPluginManager().registerEvent(Event.Type.CHUNK_POPULATED, this.chunkListener, Event.Priority.Normal, this);
+		getServer().getPluginManager().registerEvent(Event.Type.CHUNK_POPULATED, chunkListener, Event.Priority.Normal, this);
 		getServer().getPluginManager().registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Normal, this);
+		getServer().getPluginManager().registerEvent(Event.Type.PLAYER_MOVE, playerListener, Event.Priority.Normal, this);
     }
 	
 	public void loadConfiguration(){
