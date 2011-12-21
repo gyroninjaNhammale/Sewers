@@ -11,11 +11,17 @@ public class UltraGen {
 	Random gen = new Random();
 
 	private final Tunnel tun = new Tunnel();
-//	private final pit pit = new pit();
-//	private final hut hut = new hut();
-//	private final SinkHole sink = new SinkHole();
+	private final hut hut = new hut();
+	private final SinkHole sink = new SinkHole();
 	private final manhole man = new manhole();
 	private final entrance ent = new entrance();
+
+	private final AbandonedEntrance aent = new AbandonedEntrance();
+	private final AbandonedTunnel atun = new AbandonedTunnel();
+	private final bridge bridge = new bridge();
+//	private final Grave grave = new Grave();
+//	private final CaveIn cin = new CaveIn();
+//	private final spiderNest snest = new spiderNest();
 
 	public void ugen (Block set, Material m, BlockFace bf, int rooms) {
 
@@ -29,6 +35,10 @@ public class UltraGen {
 		int dir = 1;
 		int olddir = 1;
 		int rooms1 = rooms - 2;
+		int sewerend = rooms1 / 2;
+
+		System.out.println(sewerend);
+		System.out.println("----------");
 
 		Block set1 = set.getRelative(bf3, 1);
 
@@ -62,146 +72,193 @@ public class UltraGen {
 				dir = nextdir(dir);
 			}
 
-			System.out.println(roomcount - 1);
-			System.out.println(dir);
+			if (roomcount < sewerend) {
 
-			if (dir == 0) {
 
-				if (olddir == 2 || olddir == 3) {
+				System.out.println(roomcount);
+				System.out.println(dir);
 
-					set10 = pos.getRelative(bf1, 2);
+				if (dir == 0) {
 
-					int tun2 = tun.nstStraight(set10, m, bf1);
+					if (olddir == 2 || olddir == 3) {
 
-					pos = set10.getRelative(bf1, tun2 - 3);
+						set10 = pos.getRelative(bf1, 2);
 
-					olddir = 0;
+						int tun2 = tun.nstStraight(set10, m, bf1);
+
+						pos = set10.getRelative(bf1, tun2 - 3);
+
+						olddir = 0;
+					}
+
+					else {
+
+						int tun2 = tun.nstStraight(pos, m, bf1);
+
+						pos = pos.getRelative(bf1, tun2 - 3);
+
+						olddir = 0;
+					}
 				}
 
-				else {
+				if (dir == 1) {
 
-					int tun2 = tun.nstStraight(pos, m, bf1);
+					if (olddir == 2 || olddir == 3) {
 
-					pos = pos.getRelative(bf1, tun2 - 3);
+						set10 = pos.getRelative(bf2, 2);
 
-					olddir = 0;
+						int tun3 = tun.nstStraight(set10, m, bf2);
+
+						pos = set10.getRelative(bf2, tun3 - 3);
+
+						olddir = 1;
+					}
+
+					else {
+
+						int tun3 = tun.nstStraight(pos, m, bf2);
+
+						pos = pos.getRelative(bf2, tun3 - 3);
+
+						olddir = 1;
+					}
+
+					if (gen.nextInt(3) > 1) {
+
+						set10 = pos.getRelative(bf5, 1);
+						set11 = set10.getRelative(bf2, 1);
+
+						hut.hut1(set11, m, bf2);
+					}
+				}
+
+				if (dir == 2) {
+
+					if (olddir == 0) {
+
+						set10 = pos.getRelative(bf3, 2);
+
+						set11 = set10.getRelative(bf2, 1);
+
+						int tun4 = tun.ewtStraight(set11, m, bf3);
+
+						pos = set11.getRelative(bf3, tun4 - 4);
+
+						olddir = 2;
+					}
+
+					if (olddir == 1) {
+
+						set10 = pos.getRelative(bf3, 2);
+
+						set11 = set10.getRelative(bf1, 1);
+
+						int tun4 = tun.ewtStraight(set11, m, bf3);
+
+						pos = set11.getRelative(bf3, tun4 - 4);
+
+						olddir = 2;
+					}
+
+					else {
+
+						set10 = pos.getRelative(bf3, 2);
+
+						int tun4 = tun.ewtStraight(set10, m, bf3);
+
+						pos = set10.getRelative(bf3, tun4 - 4);
+
+						olddir = 2;
+					}
+				}
+
+				if (dir == 3) {
+
+					if (olddir == 0) {
+
+						set10 = pos.getRelative(bf4, 2);
+
+						set11 = set10.getRelative(bf2, 1);
+
+						int tun5 = tun.ewtStraight(set11, m, bf4);
+
+						pos = set11.getRelative(bf4, tun5 - 4);
+
+						olddir = 3;
+					}
+
+					if (olddir == 1) {
+
+						set10 = pos.getRelative(bf4, 2);
+
+						set11 = set10.getRelative(bf1, 1);
+
+						int tun5 = tun.ewtStraight(set11, m, bf4);
+
+						pos = set11.getRelative(bf4, tun5 - 4);
+
+						olddir = 3;
+					}
+
+					else {
+
+						set10 = pos.getRelative(bf4, 2);
+
+						int tun5 = tun.ewtStraight(set10, m, bf4);
+
+						pos = set10.getRelative(bf4, tun5 - 4);
+
+						olddir = 3;
+					}
 				}
 			}
 
-			if (dir == 1) {
+			if (roomcount >= sewerend) {
 
-				if (olddir == 2 || olddir == 3) {
+				System.out.println("----------");
+				System.out.println("ABANDONED FTW :D");
 
-					set10 = pos.getRelative(bf2, 2);
+				if (roomcount == sewerend) {
 
-					int tun3 = tun.nstStraight(set10, m, bf2);
+						set10 = pos.getRelative(bf5, 5);
 
-					pos = set10.getRelative(bf2, tun3 - 3);
+						int s1 = sink.sink1(set10, m, set10, bf2);
 
-					olddir = 1;
+						pos = pos.getRelative(bf6, s1 - 5);
+
 				}
 
-				else {
+				if (roomcount == sewerend + 1) {
 
-					int tun3 = tun.nstStraight(pos, m, bf2);
+					int atun1 = atun.nstStraight(pos, m, bf1);
 
-					pos = pos.getRelative(bf2, tun3 - 3);
-
-					olddir = 1;
-				}
-			}
-
-			if (dir == 2) {
-
-				if (olddir == 0) {
-
-					System.out.println(":D 0");
-
-					set10 = pos.getRelative(bf3, 2);
-
-					set11 = set10.getRelative(bf2, 1);
-
-					int tun4 = tun.ewtStraight(set11, m, bf3);
-
-					pos = set11.getRelative(bf3, tun4 - 4);
-
-					olddir = 2;
+					pos = pos.getRelative(bf1, atun1 - 3);
 				}
 
-				if (olddir == 1) {
+				if (roomcount == sewerend + 2) {
 
-					System.out.println(":D 0");
-
-					set10 = pos.getRelative(bf3, 2);
-
+					set10 = pos.getRelative(bf5, 1);
 					set11 = set10.getRelative(bf1, 1);
 
-					int tun4 = tun.ewtStraight(set11, m, bf3);
+					aent.entrance1(set11, m, bf2);
 
-					pos = set11.getRelative(bf3, tun4 - 4);
-
-					olddir = 2;
+					pos = pos.getRelative(bf1, 1);
 				}
 
-				else {
+				if (roomcount == sewerend + 3) {
 
-					set10 = pos.getRelative(bf3, 2);
+					set10 = pos.getRelative(bf1, 1);
 
-					int tun4 = tun.ewtStraight(set10, m, bf3);
-
-					pos = set10.getRelative(bf3, tun4 - 4);
-
-					olddir = 2;
-				}
-			}
-
-			if (dir == 3) {
-
-				if (olddir == 0) {
-
-					set10 = pos.getRelative(bf4, 2);
-
-					set11 = set10.getRelative(bf2, 1);
-
-					int tun5 = tun.ewtStraight(set11, m, bf4);
-
-					pos = set11.getRelative(bf4, tun5 - 4);
-
-					olddir = 3;
-				}
-
-				if (olddir == 1) {
-
-					set10 = pos.getRelative(bf4, 2);
-
-					set11 = set10.getRelative(bf1, 1);
-
-					int tun5 = tun.ewtStraight(set11, m, bf4);
-
-					pos = set11.getRelative(bf4, tun5 - 4);
-
-					olddir = 3;
-				}
-
-				else {
-
-					set10 = pos.getRelative(bf4, 2);
-
-					int tun5 = tun.ewtStraight(set10, m, bf4);
-
-					pos = set10.getRelative(bf4, tun5 - 4);
-
-					olddir = 3;
+					int b1 = bridge.nsbridge(set10, m, bf1);
 				}
 			}
 		}
-
 	}
 
 	int nextdir (int dir) {
 
-		int ran = gen.nextInt(5);
-		
+		int ran = gen.nextInt(4);
+
 		if (dir == 0) {
 
 			if (ran == 0) {
@@ -216,15 +273,10 @@ public class UltraGen {
 
 			if (ran == 2) {
 
-				dir = 0;
-			}
-
-			if (ran == 3) {
-
 				dir = 2;
 			}
 
-			if (ran == 4) {
+			if (ran == 3) {
 
 				dir = 3;
 			}
@@ -245,15 +297,10 @@ public class UltraGen {
 
 			if (ran == 2) {
 
-				dir = 1;
-			}
-
-			if (ran == 3) {
-
 				dir = 2;
 			}
 
-			if (ran == 4) {
+			if (ran == 3) {
 
 				dir = 3;
 			}
@@ -280,11 +327,6 @@ public class UltraGen {
 
 				dir = 2;
 			}
-
-			if (ran == 4) {
-
-				dir = 2;
-			}
 		}
 
 		if (dir == 3) {
@@ -308,14 +350,29 @@ public class UltraGen {
 
 				dir = 3;
 			}
-
-			if (ran == 4) {
-
-				dir = 3;
-			}
 		}
 
 		return dir;
 
+	}
+
+	void addapart(Block pos) {
+
+		int ran1 = gen.nextInt(3);
+
+		if (ran1 == 0) {
+
+			
+		}
+
+		if (ran1 == 1) {
+
+			
+		}
+
+		if (ran1 == 2) {
+
+			
+		}
 	}
 }
