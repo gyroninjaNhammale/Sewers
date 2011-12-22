@@ -81,13 +81,18 @@ public class SewerCommandListener implements CommandExecutor {
 					SpoutPlayer player = (SpoutPlayer) p;
 					if(player.isSpoutCraftEnabled()){
 					if(loc.nav == true){
+						
+						if(!(loc.active.isEmpty() || loc.active.contains(p.getName()))){						
+							sender.sendMessage(ChatColor.RED + "OH NOES! It appears that " + loc.active + " is already navigating! One at a time please!");
+							return true;						
+						}
+						
 						sender.sendMessage(ChatColor.RED + "Stopping Sewer navigation...");
 						loc.StopNav(p);
 					}else{
-						if(!(loc.active.isEmpty())){
-							
+						if(!(loc.active.isEmpty())){						
 							sender.sendMessage(ChatColor.RED + "OH NOES! It appears that " + loc.active + " is already navigating! One at a time please!");
-							
+							return true;						
 						}
 						sender.sendMessage(ChatColor.GREEN + "Starting Sewer navigation...");
 						sender.sendMessage(ChatColor.GREEN + "To stop navigation type '/sewer nav'");
@@ -96,6 +101,7 @@ public class SewerCommandListener implements CommandExecutor {
 				return true;
 					}else{
 						sender.sendMessage(ChatColor.RED + "OH NOES! You aren't using SpoutCraft so navigation is impossiable!");
+						return true;
 					}
 				}
 				else {

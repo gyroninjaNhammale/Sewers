@@ -372,8 +372,8 @@ public class SewerGenerator {
 		
 //		aent.entrance1(setter, m, bf1);
 		
-		int t1 = aent.entrance1(setter, m, bf2);
-		Block s1 = setter.getRelative(bf2, t1-2);
+		aent.entrance1(setter, m, bf2);
+		Block s1 = setter;
 		
 		int t2 = nest.nest1(s1, m, bf2);
 		Block s2 = s1.getRelative(bf2, t2-2);
