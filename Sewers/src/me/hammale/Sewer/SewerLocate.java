@@ -123,6 +123,14 @@ public class SewerLocate {
 	public void updateScreen(Player p){
 		
 		SpoutPlayer player = (SpoutPlayer) p;
+        try {
+            @SuppressWarnings("unused")
+            URL urlimage = new URL(direction);
+          }
+          catch (MalformedURLException e1) {
+            e1.printStackTrace();
+          }
+
         images.setUrl(direction);
 		player.getMainScreen().updateWidget(hud);
 		

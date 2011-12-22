@@ -33,10 +33,10 @@ public class Sewer extends JavaPlugin {
 		loadConfiguration();
 		PluginDescriptionFile pdfFile = this.getDescription();
 		System.out.println("[Sewers] Version " + pdfFile.getVersion() + " Enabled!");
-	    cmdExecutor = new SewerCommandListener(this);
+	    cmdExecutor = new SewerCommandListener();
 	    chunkListener = new SewerChunkListener(this);
 	    //sewerLocate = new SewerLocate(this);
-	    playerListener = new SewerPlayerListener(this);
+	    playerListener = new SewerPlayerListener();
 	    blockListener = new SewerBlockListener();
 		getCommand("sewer").setExecutor(cmdExecutor);
 		registerEvents();

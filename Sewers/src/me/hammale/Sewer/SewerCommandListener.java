@@ -16,13 +16,7 @@ public class SewerCommandListener implements CommandExecutor {
     
 	private final SewerGenerator sewergen = new SewerGenerator();
 	
-    public Sewer plugin;
-    
-    public SewerCommandListener(Sewer plugin) {
-		this.plugin = plugin;
-	}
-	
-	private final SewerLocate loc = new SewerLocate(plugin);
+	private final SewerLocate loc = new SewerLocate();
 		
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
