@@ -1,5 +1,7 @@
 package me.hammale.Sewer;
 
+import java.util.Random;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -18,9 +20,9 @@ public class SewerCommandListener implements CommandExecutor {
 	
 	private final SewerLocate loc = new SewerLocate();
 		
-    public Sewer plugin;
+    public final Sewer plugin;
     
-    public void SewerCommandListener(Sewer plugin) {
+	public SewerCommandListener(Sewer plugin) {
 		this.plugin = plugin;
 	}
 	
