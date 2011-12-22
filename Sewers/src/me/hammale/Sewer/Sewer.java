@@ -22,7 +22,7 @@ public class Sewer extends JavaPlugin {
 	private SewerChunkListener chunkListener;
 	private SewerBlockListener blockListener;
 	private SewerPlayerListener playerListener;
-	private SewerLocate sewerLocate;
+	//private SewerLocate sewerLocate;
 	//private SewerPlayerListener playerListener;	
 	
 	public FileConfiguration config;
@@ -33,10 +33,10 @@ public class Sewer extends JavaPlugin {
 		loadConfiguration();
 		PluginDescriptionFile pdfFile = this.getDescription();
 		System.out.println("[Sewers] Version " + pdfFile.getVersion() + " Enabled!");
-	    cmdExecutor = new SewerCommandListener();
+	    cmdExecutor = new SewerCommandListener(this);
 	    chunkListener = new SewerChunkListener(this);
-	    sewerLocate = new SewerLocate(this);
-	    playerListener = new SewerPlayerListener();
+	    //sewerLocate = new SewerLocate(this);
+	    playerListener = new SewerPlayerListener(this);
 	    blockListener = new SewerBlockListener();
 		getCommand("sewer").setExecutor(cmdExecutor);
 		registerEvents();
