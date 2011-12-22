@@ -18,6 +18,12 @@ public class SewerCommandListener implements CommandExecutor {
 	
 	private final SewerLocate loc = new SewerLocate();
 		
+    public Sewer plugin;
+    
+    public void SewerCommandListener(Sewer plugin) {
+		this.plugin = plugin;
+	}
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
@@ -105,6 +111,16 @@ public class SewerCommandListener implements CommandExecutor {
 					}
 				}
 				else {
+					sender.sendMessage("This command can only be run by an OP!");
+				}
+			}
+			
+			if(arg.equalsIgnoreCase("reload")){
+				if (p.isOp()) {
+					plugin.reloadConfig();
+					sender.sendMessage(ChatColor.GREEN + "Sewers Reloaded!");
+					return true;
+				}else {
 					sender.sendMessage("This command can only be run by an OP!");
 				}
 			}
