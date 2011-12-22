@@ -33,9 +33,9 @@ public class SewerLocate {
 	public double initial = 0;
 	public String direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/w.png";
 	
-    public final Sewer plugin;
+    public Sewer plugin;
     
-    public SewerLocate(Sewer plugin) {
+    public void SewerLocate1(Sewer plugin) {
 		this.plugin = plugin;
 	}
 	
