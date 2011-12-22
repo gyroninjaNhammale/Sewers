@@ -3,30 +3,26 @@ package me.hammale.Sewer;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.getspout.spoutapi.gui.GenericContainer;
-import org.getspout.spoutapi.gui.GenericPopup;
-import org.getspout.spoutapi.gui.GenericTexture;
-import org.getspout.spoutapi.gui.InGameHUD;
-import org.getspout.spoutapi.gui.PopupScreen;
-import org.getspout.spoutapi.gui.WidgetAnchor;
 import org.getspout.spoutapi.player.SpoutPlayer;
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
+
 
 public class SewerCommandListener implements CommandExecutor {
     
 	private final SewerGenerator sewergen = new SewerGenerator();
 	
-	private final SewerLocate loc = new SewerLocate();
+    public Sewer plugin;
+    
+    public SewerCommandListener(Sewer plugin) {
+		this.plugin = plugin;
+	}
+	
+	private final SewerLocate loc = new SewerLocate(plugin);
 		
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -101,7 +97,7 @@ public class SewerCommandListener implements CommandExecutor {
 						}
 						sender.sendMessage(ChatColor.GREEN + "Starting Sewer navigation...");
 						sender.sendMessage(ChatColor.GREEN + "To stop navigation type '/sewer nav'");
-						loc.DisplayArrows(p);					
+						loc.DisplayArrows(p);				
 					}					
 				return true;
 					}else{

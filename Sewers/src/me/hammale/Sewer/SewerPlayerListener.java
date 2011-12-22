@@ -6,12 +6,18 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class SewerPlayerListener extends PlayerListener {
 	 
-	private final SewerLocate loc = new SewerLocate();
+    public Sewer plugin;
+    
+    public SewerPlayerListener(Sewer plugin) {
+		this.plugin = plugin;
+	}
+	
+	private final SewerLocate loc = new SewerLocate(plugin);
 	
 	public void onPlayerMove(PlayerMoveEvent e) {
-		if(!(loc.active.isEmpty())){
-		if(loc.active.contains(e.getPlayer().getName())){
-			Player p = e.getPlayer();
+		Player p = e.getPlayer();
+		//if(loc.active.contains(p.getName())){
+			System.out.println("MOVING!");
 			if(p.getEyeLocation().distance(loc.findSewer(p.getWorld(), p)) < loc.initial){
 				loc.direction = getDirection(p);
 			}else{
@@ -34,8 +40,7 @@ public class SewerPlayerListener extends PlayerListener {
 				}
 			}
 			loc.updateScreen(p);
-		}
-		}
+		//}
 	}
 	
 	   public String getDirection(Player playerSelf){
