@@ -76,64 +76,55 @@ public class SewerLocate {
 		return null;		
 	}
 	
-	public void DisplayArrows(Player p){
+//	public void DisplayArrows(Player p){
 		
-		initial = p.getEyeLocation().distance(findSewer(p.getWorld(), p));
+//		initial = p.getEyeLocation().distance(findSewer(p.getWorld(), p));
 		
-		active.add(p.getName());
+//		active.add(p.getName());
 		
-		SpoutPlayer player = (SpoutPlayer) p;
+//		SpoutPlayer player = (SpoutPlayer) p;
 		
-		hud = player.getMainScreen();
-        GenericContainer generalBox = new GenericContainer();
-        images = new GenericTexture();
-        PopupScreen popup = new GenericPopup();
+//		hud = player.getMainScreen();
+//        GenericContainer generalBox = new GenericContainer();
+//        images = new GenericTexture();
+//        PopupScreen popup = new GenericPopup();
         
-        generalBox.setAnchor(WidgetAnchor.TOP_CENTER);
+//        generalBox.setAnchor(WidgetAnchor.TOP_CENTER);
         
-        images.setUrl("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png");
-        try {
-          @SuppressWarnings("unused")
-          URL urlimage = new URL("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png");
-        }
-        catch (MalformedURLException e1) {
-          e1.printStackTrace();
-        }
+//        images.setUrl("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png");
+//        try {
+//          @SuppressWarnings("unused")
+//          URL urlimage = new URL("http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/e.png");
+//        }
+//       catch (MalformedURLException e1) {
+//         e1.printStackTrace();
+//        }
 
-        generalBox.setWidth(48).setHeight(48);
-        images.setWidth(48).setHeight(48);
-        images.setVisible(true);
-        generalBox.addChild(images);
+//        generalBox.setWidth(48).setHeight(48);
+//        images.setWidth(48).setHeight(48);
+//        images.setVisible(true);
+//        generalBox.addChild(images);
         
-        hud.attachWidget(plugin, generalBox);
-        player.getMainScreen().setScreen(hud);
+//        hud.attachWidget(plugin, generalBox);
+//        player.getMainScreen().setScreen(hud);
 		
-        nav = true;
-		}
+//        nav = true;
+//		}
 	
-	public void StopNav(Player p) {
+//	public void StopNav(Player p) {
 
-		active.remove(p.getName());
-		SpoutPlayer player = (SpoutPlayer) p;
-		player.getMainScreen().removeWidgets(plugin);
-		nav = false;
+//		active.remove(p.getName());
+//		SpoutPlayer player = (SpoutPlayer) p;
+//		player.getMainScreen().removeWidgets(plugin);
+//		nav = false;
 		
-	}
+//	}
 	
-	public void updateScreen(Player p){
+//	public void updateScreen(Player p){
 		
-		SpoutPlayer player = (SpoutPlayer) p;
-        try {
-            @SuppressWarnings("unused")
-            URL urlimage = new URL(direction);
-          }
-          catch (MalformedURLException e1) {
-            e1.printStackTrace();
-          }
-
-        images.setUrl(direction);
-		player.getMainScreen().updateWidget(hud);
+//		SpoutPlayer player = (SpoutPlayer) p;
+//        images.setUrl(direction);
+//		player.getMainScreen().updateWidget(hud);
 		
-	}
-	
+//	}
 }
