@@ -41,8 +41,8 @@ public class UltraGen {
 		int rooms1 = rooms - 2;
 		int sewerend = rooms1 / 2;
 
-		System.out.println(sewerend);
-		System.out.println("----------");
+//		System.out.println(sewerend);
+//		System.out.println("----------");
 
 		Block set1 = set.getRelative(bf3, 1);
 
@@ -76,8 +76,8 @@ public class UltraGen {
 			if (roomcount < sewerend) {
 
 
-				System.out.println(roomcount);
-				System.out.println(dir);
+//				System.out.println(roomcount);
+//				System.out.println(dir);
 
 				if (dir == 0) {
 
@@ -216,8 +216,8 @@ public class UltraGen {
 
 			if (roomcount >= sewerend) {
 
-				System.out.println("----------");
-				System.out.println("ABANDONED FTW :D");
+//				System.out.println("----------");
+//				System.out.println("ABANDONED FTW :D");
 
 				if (roomcount == sewerend) {
 

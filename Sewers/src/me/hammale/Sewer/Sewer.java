@@ -53,7 +53,7 @@ public class Sewer extends JavaPlugin {
     {
 		getServer().getPluginManager().registerEvent(Event.Type.CHUNK_POPULATED, chunkListener, Event.Priority.Normal, this);
 		getServer().getPluginManager().registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Normal, this);
-		getServer().getPluginManager().registerEvent(Event.Type.PLAYER_MOVE, playerListener, Event.Priority.Normal, this);
+		//getServer().getPluginManager().registerEvent(Event.Type.PLAYER_MOVE, playerListener, Event.Priority.Normal, this);
     }
 	
 	public void loadConfiguration(){

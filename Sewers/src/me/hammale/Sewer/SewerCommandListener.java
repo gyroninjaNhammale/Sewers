@@ -42,11 +42,48 @@ public class SewerCommandListener implements CommandExecutor {
 		
 		if (command.getName().equalsIgnoreCase("sewer")) {
 			
-			if(args.length == 1){
+			
+			if(args.length == 2){
+				arg = args[0];
+				arg1 = args[1];
+
+				if(arg.equalsIgnoreCase("create")){
+	 				if (p == null) {
+	 					System.out.println("[Sewers] This command can only be run by a player!");
+					} else if (p.isOp()) {
+						try {
+							a1 = Integer.parseInt(arg1);
+						}
+						catch(NumberFormatException e) {
+							sender.sendMessage(ChatColor.RED + arg1 + " is not a number");
+							return true;
+						}
+						p.sendMessage(ChatColor.GREEN + "Generating Sewer...");
+						Block b = p.getLocation().getBlock();
+						b.setType(Material.AIR);
+						Material m = (Material.SMOOTH_BRICK);
+						BlockFace bf = BlockFace.NORTH;
+						Block set2 = b;
+						ugen.ugen(set2, m, bf, a1);
+						//sewergen.start1(set2, m, bf);
+						//sewergen.apreview(set2, m, bf);
+						//nest.nest1(set2, m, bf);
+						//bridge.nsbridge(set2, m, bf);
+						//cavein.cavein1(set2, m, bf);
+						//grave.grave(set2, m, bf);
+						p.sendMessage(ChatColor.GREEN + "Sewer Complete!");
+				
+						return true;
+					}
+					else {
+						sender.sendMessage("This command can only be run by an OP!");
+					}
+				}
+			}else if(args.length == 1){
 				arg = args[0];
 				if(arg.equalsIgnoreCase("create")){
 					if (p == null) {
-						sender.sendMessage("[Sewers] This command can only be run by a player!");
+						System.out.println("[Sewers] This command can only be run by a player!");
 					} else if (p.isOp()) {
 						p.sendMessage(ChatColor.GREEN + "Generating Sewer...");
 						Block b = p.getLocation().getBlock();
@@ -73,49 +110,10 @@ public class SewerCommandListener implements CommandExecutor {
 						sender.sendMessage("This command can only be run by an OP!");
 					}
 				}
-				
-			if(args.length == 2){
-				arg = args[0];
-				arg1 = args[1];
-
-				if(arg.equalsIgnoreCase("create")){
-	 				if (p == null) {
-	 					sender.sendMessage("[Sewers] This command can only be run by a player!");
-					} else if (p.isOp()) {
-						try {
-							a1 = Integer.parseInt(arg1);
-						}
-						catch(NumberFormatException e) {
-							e.printStackTrace();
-							sender.sendMessage(arg1 + "is not a number");
-							return false;
-						}
-						p.sendMessage(ChatColor.GREEN + "Generating Sewer...");
-						Block b = p.getLocation().getBlock();
-						b.setType(Material.AIR);
-						Material m = (Material.SMOOTH_BRICK);
-						BlockFace bf = BlockFace.NORTH;
-						Block set2 = b;
-						ugen.ugen(set2, m, bf, a1);
-						//sewergen.start1(set2, m, bf);
-						//sewergen.apreview(set2, m, bf);
-						//nest.nest1(set2, m, bf);
-						//bridge.nsbridge(set2, m, bf);
-						//cavein.cavein1(set2, m, bf);
-						//grave.grave(set2, m, bf);
-						p.sendMessage(ChatColor.GREEN + "Sewer Complete!");
-				
-						return true;
-					}
-					else {
-						sender.sendMessage("This command can only be run by an OP!");
-					}
-				}
-			}
 			
 			if(arg.equalsIgnoreCase("locate")){
 				if (p == null) {
-					sender.sendMessage("This command can only be run by a player!");
+					System.out.println("This command can only be run by a player!");
 				} else if (p.isOp()) {
 					p.sendMessage(ChatColor.GREEN + "Locating Sewer...");
 					
@@ -126,6 +124,21 @@ public class SewerCommandListener implements CommandExecutor {
 						p.sendMessage(ChatColor.RED + "No Sewer's found!");
 					}
 				return true;
+				}
+				else {
+					sender.sendMessage("This command can only be run by an OP!");
+				}
+			}
+			
+			if(arg.equalsIgnoreCase("reload")){
+				if (p == null) {
+					plugin.reloadConfig();
+					System.out.println("[Sewers] Sewers Reloaded!");
+					return true;
+				} else if (p.isOp()) {
+					plugin.reloadConfig();
+					p.sendMessage(ChatColor.GREEN + "Sewers Reloaded!");
+					return true;
 				}
 				else {
 					sender.sendMessage("This command can only be run by an OP!");

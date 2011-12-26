@@ -33,7 +33,7 @@ public class SewerPlayerListener extends PlayerListener {
 					loc.direction = "http://www.hammhome.net/alex/hammcraft/plugins/sewers/images/sw.png";
 				}
 			}
-			loc.updateScreen(p);
+			//loc.updateScreen(p);
 		}
 	}
 	
