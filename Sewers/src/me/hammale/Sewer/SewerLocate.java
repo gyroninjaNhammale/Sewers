@@ -13,21 +13,21 @@ import java.util.Random;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-import org.getspout.spoutapi.gui.GenericContainer;
-import org.getspout.spoutapi.gui.GenericPopup;
-import org.getspout.spoutapi.gui.GenericTexture;
-import org.getspout.spoutapi.gui.InGameHUD;
-import org.getspout.spoutapi.gui.PopupScreen;
-import org.getspout.spoutapi.gui.WidgetAnchor;
-import org.getspout.spoutapi.player.SpoutPlayer;
+//import org.getspout.spoutapi.gui.GenericContainer;
+//import org.getspout.spoutapi.gui.GenericPopup;
+//import org.getspout.spoutapi.gui.GenericTexture;
+//import org.getspout.spoutapi.gui.InGameHUD;
+//import org.getspout.spoutapi.gui.PopupScreen;
+//import org.getspout.spoutapi.gui.WidgetAnchor;
+//import org.getspout.spoutapi.player.SpoutPlayer;
 
 public class SewerLocate {
 	
 	public ArrayList<Integer> distance = new ArrayList<Integer>();
 	public Location end;
 	public boolean nav = false;
-	public InGameHUD hud;
-	public GenericTexture images;
+//	public InGameHUD hud;
+//	public GenericTexture images;
 	
 	public HashSet<String> active = new HashSet<String>();
 	public double initial = 0;
